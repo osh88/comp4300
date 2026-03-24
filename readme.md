@@ -2,26 +2,42 @@
 [Link to youtube playlist](https://www.youtube.com/playlist?list=PL_xRyXins848nDj2v-TJYahzvs-XW9sVV)
 
 ## Assignment 1
+
 <details>
-  <summary>...</summary>
+  <summary>Screenshots</summary>
+  
   ![A1 screenshot](media/a1/a1.png)
+</details>
+
+<details>
+  <summary>Video</summary>
   
   https://github.com/user-attachments/assets/1793d748-86f0-4d63-a944-5d0f56df8861
 </details>
 
-### Assignment 2
-![A2 screenshot](media/a2/a2.png)
 
-https://github.com/user-attachments/assets/24f81e0d-874e-441a-826d-adf6683eaa68
+### Assignment 2
+
+<details>
+  <summary>Screenshots</summary>
+  
+  ![A2 screenshot](media/a2/a2.png)
+</details>
+
+<details>
+  <summary>Video</summary>
+  
+  https://github.com/user-attachments/assets/24f81e0d-874e-441a-826d-adf6683eaa68
+</details>
 
 
 ### Assignment 3
 
-![A2 screenshot](media/a3/2.png)
-
 <details>
-  <summary>Click to expand image gallery</summary>
-  <img src="media/a3/1.png" alt="Image 1 description"/>
+  <summary>Screenshots</summary>
+  
+  ![A2 screenshot](media/a3/1.png)
+  ![A2 screenshot](media/a3/2.png)
   <img src="media/a3/3.png" alt="Image 1 description"/>
   <img src="media/a3/4.png" alt="Image 1 description"/>
   <img src="media/a3/5.png" alt="Image 1 description"/>
@@ -32,9 +48,13 @@ https://github.com/user-attachments/assets/24f81e0d-874e-441a-826d-adf6683eaa68
   <img src="media/a3/10.png" alt="Image 1 description"/>
 </details>
 
-https://github.com/user-attachments/assets/ffccce47-b7ab-4549-a2e2-31948dae28fe
+<details>
+  <summary>Video</summary>
+  
+  https://github.com/user-attachments/assets/ffccce47-b7ab-4549-a2e2-31948dae28fe
 
-https://github.com/user-attachments/assets/9dbbfadd-4cb9-4f4b-bcef-a11052e54844
+  https://github.com/user-attachments/assets/9dbbfadd-4cb9-4f4b-bcef-a11052e54844
+</details>
 
 
 ### Assignment 4

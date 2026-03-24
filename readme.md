@@ -3,10 +3,12 @@
 
 ### Assignment 1
 ![A1 screenshot](media/a1/a1.png)
+
 https://github.com/user-attachments/assets/440ee45e-f1fc-44d4-8368-a8dcc971c258
 
 ### Assignment 2
 ![A2 screenshot](media/a2/a2.png)
+
 https://github.com/user-attachments/assets/e61e6199-880c-4d1a-8cd2-40d91ba06a51
 
 ### Assignment 3

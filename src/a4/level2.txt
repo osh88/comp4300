@@ -1,0 +1,6 @@
+Tile Heart   0 0  8 2  0 0
+Tile RockBM 0 0 2   2 1 1
+Tile RockBM 0 0 13   6 1 1
+NPC Tektite  0  0  3  9 0 0 8 1 Patrol 2 2 3 9 7 9
+NPC Knight   0  0 16  6 0 0 5 2 Follow 1
+Player 640 384 48 48 5 3

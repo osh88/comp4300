@@ -4,6 +4,7 @@ cmake-build-debug/
 .DS_Store
 a.out
 *.code-workspace
+test.png
 
 remarks.txt
 profile.json

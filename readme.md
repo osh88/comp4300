@@ -16,7 +16,7 @@
 </details>
 
 
-### Assignment 2
+## Assignment 2
 
 <details>
   <summary>Screenshots</summary>
@@ -31,21 +31,21 @@
 </details>
 
 
-### Assignment 3
+## Assignment 3
 
 <details>
   <summary>Screenshots</summary>
   
   ![A2 screenshot](media/a3/1.png)
   ![A2 screenshot](media/a3/2.png)
-  <img src="media/a3/3.png" alt="Image 1 description"/>
-  <img src="media/a3/4.png" alt="Image 1 description"/>
-  <img src="media/a3/5.png" alt="Image 1 description"/>
-  <img src="media/a3/6.png" alt="Image 1 description"/>
-  <img src="media/a3/7.png" alt="Image 1 description"/>
-  <img src="media/a3/8.png" alt="Image 1 description"/>
-  <img src="media/a3/9.png" alt="Image 1 description"/>
-  <img src="media/a3/10.png" alt="Image 1 description"/>
+  ![A2 screenshot](media/a3/3.png)
+  ![A2 screenshot](media/a3/4.png)
+  ![A2 screenshot](media/a3/5.png)
+  ![A2 screenshot](media/a3/6.png)
+  ![A2 screenshot](media/a3/7.png)
+  ![A2 screenshot](media/a3/8.png)
+  ![A2 screenshot](media/a3/9.png)
+  ![A2 screenshot](media/a3/10.png)
 </details>
 
 <details>
@@ -57,6 +57,28 @@
 </details>
 
 
-### Assignment 4
+## Assignment 4
 
-### Final project
+<details>
+  <summary>Screenshots</summary>
+  
+  ![A4 screenshot](media/a4/1.png)
+</details>
+
+<details>
+  <summary>Video</summary>
+  
+</details>
+
+## Final project
+
+<details>
+  <summary>Screenshots</summary>
+  
+  ![Final project screenshot](media/fp/1.png)
+</details>
+
+<details>
+  <summary>Video</summary>
+  
+</details>

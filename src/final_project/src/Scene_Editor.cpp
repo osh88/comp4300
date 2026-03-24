@@ -18,9 +18,10 @@ Scene_Editor::Scene_Editor(GameEngine* gameEngine)
 void Scene_Editor::init() {
     m_bgColor = sf::Color(0x97, 0xAD, 0xB7, 0x51);
 
-    if (auto cursor = sf::Cursor::createFromSystem(sf::Cursor::Type::Hand); cursor.has_value()) {
-        m_game->window().setMouseCursor(cursor.value());
-    }
+    // TODO: fix error: Debian/Gnome/Wayland/Nvidia: changing cursor crashes app
+    // if (auto cursor = sf::Cursor::createFromSystem(sf::Cursor::Type::Hand); cursor.has_value()) {
+    //     m_game->window().setMouseCursor(cursor.value());
+    // }
 
     storeViewCenter(m_game->getWindowSize() / 2.0);
     m_leftBottomOfLevel = Vec2(0, m_game->getWindowSize().y);
@@ -56,9 +57,9 @@ void Scene_Editor::init() {
     // registerAction("PAUSE",          sf::Keyboard::Key::P, true);
     // registerAction("TOGGLE_TEXTURE", sf::Keyboard::Key::T, true);
     // registerAction("TOGGLE_DEBUG",   sf::Keyboard::Key::D, true);
-    
+
     // registerAction("RELOAD",         sf::Keyboard::Key::R, true);
-    // registerAction("TOGGLE_SLOW",    sf::Keyboard::Key::S, true);    
+    // registerAction("TOGGLE_SLOW",    sf::Keyboard::Key::S, true);
 }
 
 Vec2 Scene_Editor::newSpritePos() {
@@ -192,7 +193,7 @@ void Scene_Editor::spawnNPC(const std::string & ai) {
     auto bb = m_game->assets().getAnimation("GoombaW").frameSize()-4;
     if (bx == 0) bx = bb.x;
     if (by == 0) by = bb.y;
-    e.addComponent<CBoundingBox>(Vec2(bx, by), 0, 0); 
+    e.addComponent<CBoundingBox>(Vec2(bx, by), 0, 0);
     auto pos = newSpritePos();
     e.addComponent<CTransform>(pos, 0);
     e.addComponent<CHealth>(5, 5);
@@ -289,11 +290,11 @@ std::optional<std::string> Scene_Editor::selectFile() {
         auto fn = std::filesystem::path(std::string(m_paths[m_pathIndex])).filename().string();
         ImGui::TextUnformatted((const char*)fn.c_str());
     }
-    
+
     bool selected = false;
     if (ImGui::BeginPopup("select_file_popup")) {
         ImGui::SeparatorText("Level");
-        for (size_t i = 0; i < m_paths.size(); i++) {            
+        for (size_t i = 0; i < m_paths.size(); i++) {
             if (ImGui::Selectable(m_paths.data()[i])) {
                 m_pathIndex = i;
                 selected = true;
@@ -599,7 +600,7 @@ void Scene_Editor::sGUI() {
         m_game->setViewSize(computedViewSize());
     }
     ImGui::SetItemTooltip("Сбросить масштабирование");
-    
+
     ImGui::SameLine();
     if (ImGui::Button("PLR", ImVec2(50, 50))) {
         spawnPlayer();
@@ -700,7 +701,7 @@ void Scene_Editor::sGUI() {
                         e.getComponent<CBoundingBox>().halfSize = a.value().frameSize() / 2.0;
                     }
                 }
-                
+
                 ImGui::Checkbox("Repeat", &c.repeat);
             }
         }
@@ -773,7 +774,7 @@ void Scene_Editor::sGUI() {
                 auto& c = e.getComponent<CPatrol>();
                 ImGui::SetNextItemWidth(150.0f);
                 ImGui::InputFloat("Speed##2", &c.speed, 1.0f, 0.1f, "%.1f");
-                
+
                 int deletePoint = -1;
                 for(size_t i=0; i<c.positions.size(); i++) {
                     InputFloat2("P"+std::to_string(i), c.positions[i], 64.0f, 4.0f);
@@ -839,7 +840,7 @@ void Scene_Editor::sGUI() {
                 e.removeComponent<CTeleport>();
             } else {
                 e.addComponent<CTeleport>(-1);
-            }            
+            }
         }
 
         if (auto title = e.hasComponent<CParallax>() ? "Delete parallax" : "Add parallax"; ImGui::Button(title)) {
@@ -847,7 +848,7 @@ void Scene_Editor::sGUI() {
                 e.removeComponent<CParallax>();
             } else {
                 e.addComponent<CParallax>(e.getComponent<CTransform>().pos, 1);
-            }            
+            }
         }
 
         if (auto title = e.hasComponent<CArtefact>() ? "Delete artefact" : "Add artefact"; ImGui::Button(title)) {
@@ -855,7 +856,7 @@ void Scene_Editor::sGUI() {
                 e.removeComponent<CArtefact>();
             } else {
                 e.addComponent<CArtefact>();
-            }            
+            }
         }
 
         if (auto title = e.hasComponent<CArtefactSpawner>() ? "Delete artefact spawner" : "Add artefact spawner"; ImGui::Button(title)) {
@@ -863,7 +864,7 @@ void Scene_Editor::sGUI() {
                 e.removeComponent<CArtefactSpawner>();
             } else {
                 e.addComponent<CArtefactSpawner>();
-            }            
+            }
         }
 
         ImGui::End();
@@ -950,7 +951,7 @@ void Scene_Editor::sDoAction(const Action& action) {
                 auto delta = m_sDnD.startMousePos - action.screenPos();
                 delta.x *= mx;
                 delta.y *= my;
-                
+
                 m_game->setViewCenter(m_sDnD.startViewPos + delta);
             }
 
@@ -1126,7 +1127,7 @@ void Scene_Editor::drawGrid() {
         auto cond = ((int)y % ((int)m_gridSize.y*10) == 0);
         auto c = cond ? sf::Color::Red : sf::Color::Black;
         drawLine(Vec2(tl.x, y), Vec2(br.x, y), c);
-        
+
         std::string yCell = std::to_string((int)y / (int)m_gridSize.y);
 
         if (!cond) {
@@ -1147,15 +1148,17 @@ void Scene_Editor::drawGrid() {
 }
 
 void Scene_Editor::onResume(const std::string & prevScene) {
-    if (auto cursor = sf::Cursor::createFromSystem(sf::Cursor::Type::Hand); cursor.has_value()) {
-        m_game->window().setMouseCursor(cursor.value());
-    }
+    // TODO: fix error: Debian/Gnome/Wayland/Nvidia: changing cursor crashes app
+    // if (auto cursor = sf::Cursor::createFromSystem(sf::Cursor::Type::Hand); cursor.has_value()) {
+    //     m_game->window().setMouseCursor(cursor.value());
+    // }
 }
 
 void Scene_Editor::onPause(const std::string & nextScene) {
-    if (auto cursor = sf::Cursor::createFromSystem(sf::Cursor::Type::Arrow); cursor.has_value()) {
-        m_game->window().setMouseCursor(cursor.value());
-    }
+    // TODO: fix error: Debian/Gnome/Wayland/Nvidia: changing cursor crashes app
+    // if (auto cursor = sf::Cursor::createFromSystem(sf::Cursor::Type::Arrow); cursor.has_value()) {
+    //     m_game->window().setMouseCursor(cursor.value());
+    // }
 }
 
 Entity Scene_Editor::copyEntity(const Entity & o) {

@@ -61,7 +61,7 @@ void GameEngine::setFullScreen(bool init) {
     } else {
         m_window.create(sf::VideoMode(sf::Vector2u(1280, 768)), L"Не Марио", sf::Style::Titlebar|sf::Style::Close|sf::Style::Resize, sf::State::Windowed);
     }
-    
+
     auto wh = getWindowSize();
 
     setViewCenter(viewCenter);
@@ -118,7 +118,7 @@ void GameEngine::run() {
         update();
         d = std::chrono::high_resolution_clock::now()-s;
         m_frameTime = (float)std::chrono::duration_cast<std::chrono::microseconds>(d).count() / 1000;
-        
+
         if (i % 200 == 0) {
             std::cout << "frameTime: " << m_frameTime << std::endl;
         }
@@ -126,7 +126,7 @@ void GameEngine::run() {
         if (m_frameTime < MS_PER_FRAME) {
             PROFILE_SCOPE("GameEngine::sleep");
             auto sleep = std::chrono::milliseconds(int(MS_PER_FRAME - m_frameTime));
-            
+
             auto t = std::chrono::high_resolution_clock::now() + sleep;
             while (std::chrono::high_resolution_clock::now() < t) {
                 sqrt(131313);
@@ -196,7 +196,7 @@ void GameEngine::sUserInput() {
                 const std::string actionType = (event->is<sf::Event::KeyPressed>()) ? "START" : "END";
 
                 // look up the action and send the action to the scene
-                currentScene()->doAction(Action(r.value(), actionType));   
+                currentScene()->doAction(Action(r.value(), actionType));
             }
         }
 
@@ -228,7 +228,7 @@ void GameEngine::sUserInput() {
 
         if (event->is<sf::Event::MouseWheelScrolled>()) {
             if (ImGui::GetIO().WantCaptureMouse) { return; }
-            
+
             float delta = event->getIf<sf::Event::MouseWheelScrolled>()->delta;
 #ifdef _WIN32
             delta *= 5.0; // На маке 5-15, на винде 1-3
@@ -352,7 +352,7 @@ std::shared_ptr<Scene> GameEngine::getScene(const std::string& sceneName) {
     if (m_sceneMap.find(sceneName) != m_sceneMap.end()) {
         return m_sceneMap[sceneName];
     }
-    
+
     return nullptr;
 }
 

@@ -76,6 +76,7 @@
 <details>
   <summary>Video</summary>
   
+  https://github.com/user-attachments/assets/b8297a07-0692-4265-a212-b162753c3631
 </details>
 
 ## Final project

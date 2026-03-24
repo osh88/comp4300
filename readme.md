@@ -30,6 +30,11 @@ https://github.com/user-attachments/assets/24f81e0d-874e-441a-826d-adf6683eaa68
   <img src="media/a3/10.png" alt="Image 1 description"/>
 </details>
 
+https://github.com/user-attachments/assets/ffccce47-b7ab-4549-a2e2-31948dae28fe
+
+https://github.com/user-attachments/assets/9dbbfadd-4cb9-4f4b-bcef-a11052e54844
+
+
 ### Assignment 4
 
 ### Final project

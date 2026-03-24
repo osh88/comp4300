@@ -3,8 +3,8 @@
 
 ### Assignment 1
 ![A1 screenshot](media/a1/a1.png)
-<!--![A1 video](media/a1/a1.mp4)-->
-<video src="media/a1/a1.mp4" width="300"></video>
+
+
 
 ### Assignment 2
 ![A2 screenshot](media/a2/a2.png)

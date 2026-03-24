@@ -1,100 +1,100 @@
 {
-    "assetsPath": "config/assets.txt",
-    "difficulty": 0,
-    "effectsVolume": 9,
-    "fullScreen": true,
-    "keys": {
-        "MOVE_LEFT": {
-            "action": "MOVE_LEFT",
-            "key": 71,
-            "name": "Влево"
-        },
-        "MOVE_RIGHT": {
-            "action": "MOVE_RIGHT",
-            "key": 72,
-            "name": "Вправо"
-        },
-        "MOVE_UP": {
-            "action": "MOVE_UP",
-            "key": 73,
-            "name": "Прыжок"
-        },
-        "SHOOT": {
-            "action": "SHOOT",
-            "key": 57,
-            "name": "Стрелять"
-        }
+  "assetsPath": "config/assets.txt",
+  "difficulty": 0,
+  "effectsVolume": 15,
+  "fullScreen": true,
+  "keys": {
+    "MOVE_LEFT": {
+      "action": "MOVE_LEFT",
+      "key": 71,
+      "name": "Влево"
     },
-    "levels": [
-        {
-            "pass": true,
-            "path": "config/levels/world.bin",
-            "shader": "",
-            "userLevel": false,
-            "world": true
-        },
-        {
-            "pass": false,
-            "path": "config/levels/level0.bin",
-            "shader": "Firework0",
-            "userLevel": false,
-            "world": false
-        },
-        {
-            "pass": false,
-            "path": "config/levels/level1.bin",
-            "shader": "Firework0",
-            "userLevel": false,
-            "world": false
-        },
-        {
-            "pass": false,
-            "path": "config/levels/level2.bin",
-            "shader": "Firework0",
-            "userLevel": false,
-            "world": false
-        },
-        {
-            "pass": false,
-            "path": "config/levels/level3.bin",
-            "shader": "Firework0",
-            "userLevel": false,
-            "world": false
-        },
-        {
-            "pass": false,
-            "path": "config/levels/final.bin",
-            "shader": "Firework0",
-            "userLevel": false,
-            "world": false
-        },
-        {
-            "pass": true,
-            "path": "config/levels/user5.bin",
-            "shader": "Firework0",
-            "userLevel": true,
-            "world": false
-        },
-        {
-            "pass": true,
-            "path": "config/levels/user6.bin",
-            "shader": "Firework0",
-            "userLevel": true,
-            "world": false
-        },
-        {
-            "pass": true,
-            "path": "config/levels/user8.bin",
-            "shader": "Firework0",
-            "userLevel": true,
-            "world": false
-        }
-    ],
-    "musicVolume": 9,
-    "mute": false,
-    "playerConfig": {
-        "jumpSpeed": -20.0,
-        "maxSpeed": 20.0,
-        "speed": 5.0
+    "MOVE_RIGHT": {
+      "action": "MOVE_RIGHT",
+      "key": 72,
+      "name": "Вправо"
+    },
+    "MOVE_UP": {
+      "action": "MOVE_UP",
+      "key": 73,
+      "name": "Прыжок"
+    },
+    "SHOOT": {
+      "action": "SHOOT",
+      "key": 57,
+      "name": "Стрелять"
     }
+  },
+  "levels": [
+    {
+      "pass": false,
+      "path": "config/levels/world.bin",
+      "shader": "",
+      "userLevel": false,
+      "world": true
+    },
+    {
+      "pass": false,
+      "path": "config/levels/level0.bin",
+      "shader": "Firework0",
+      "userLevel": false,
+      "world": false
+    },
+    {
+      "pass": false,
+      "path": "config/levels/level1.bin",
+      "shader": "Firework0",
+      "userLevel": false,
+      "world": false
+    },
+    {
+      "pass": false,
+      "path": "config/levels/level2.bin",
+      "shader": "Firework0",
+      "userLevel": false,
+      "world": false
+    },
+    {
+      "pass": false,
+      "path": "config/levels/level3.bin",
+      "shader": "Firework0",
+      "userLevel": false,
+      "world": false
+    },
+    {
+      "pass": false,
+      "path": "config/levels/final.bin",
+      "shader": "Firework0",
+      "userLevel": false,
+      "world": false
+    },
+    {
+      "pass": true,
+      "path": "config/levels/user5.bin",
+      "shader": "Firework0",
+      "userLevel": true,
+      "world": false
+    },
+    {
+      "pass": true,
+      "path": "config/levels/user6.bin",
+      "shader": "Firework0",
+      "userLevel": true,
+      "world": false
+    },
+    {
+      "pass": true,
+      "path": "config/levels/user8.bin",
+      "shader": "Firework0",
+      "userLevel": true,
+      "world": false
+    }
+  ],
+  "musicVolume": 20,
+  "mute": false,
+  "playerConfig": {
+    "jumpSpeed": -20.0,
+    "maxSpeed": 20.0,
+    "speed": 5.0
+  }
 }

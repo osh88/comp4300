@@ -15,10 +15,11 @@ https://github.com/user-attachments/assets/24f81e0d-874e-441a-826d-adf6683eaa68
 
 ### Assignment 3
 
+![A2 screenshot](media/a3/2.png)
+
 <details>
   <summary>Click to expand image gallery</summary>
   <img src="media/a3/1.png" alt="Image 1 description"/>
-  <img src="media/a3/2.png" alt="Image 1 description"/>
   <img src="media/a3/3.png" alt="Image 1 description"/>
   <img src="media/a3/4.png" alt="Image 1 description"/>
   <img src="media/a3/5.png" alt="Image 1 description"/>

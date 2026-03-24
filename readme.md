@@ -63,6 +63,14 @@
   <summary>Screenshots</summary>
   
   ![A4 screenshot](media/a4/1.png)
+  ![A4 screenshot](media/a4/2.png)
+  ![A4 screenshot](media/a4/3.png)
+  ![A4 screenshot](media/a4/4.png)
+  ![A4 screenshot](media/a4/5.png)
+  ![A4 screenshot](media/a4/6.png)
+  ![A4 screenshot](media/a4/7.png)
+  ![A4 screenshot](media/a4/8.png)
+  ![A4 screenshot](media/a4/9.png)
 </details>
 
 <details>

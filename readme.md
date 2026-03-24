@@ -4,7 +4,7 @@
 ### Assignment 1
 ![A1 screenshot](media/a1/a1.png)
 <!--![A1 video](media/a1/a1.mp4)-->
-https://github.com/user-attachments/assets/440ee45e-f1fc-44d4-8368-a8dcc971c258
+<img src="https://github.com/user-attachments/assets/440ee45e-f1fc-44d4-8368-a8dcc971c258" width="300">
 
 
 ### Assignment 2

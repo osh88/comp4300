@@ -761,11 +761,6 @@ void Scene_World::sRender() {
                 auto pos = Vec2(transform.pos.x, transform.pos.y - e.getSize().y / 2.0 - a.getTexture().size.y - 10.0);
                 a.getSprite().setPosition(pos);
                 m_game->getVertexArrays().draw(a.getSprite(), "", m_game->assets().getLargeTexture());
-
-                if (e.tag() == "player" && m_currentFrame % 60 == 0) {
-                    // std::cout << "-->" << h.current << " " << h.max << " " << health << std::endl;
-                    std::cout << "-->" << a.getName() << a.getTexture().pos << a.getTexture().size << std::endl;
-                }
             }
         }}
     }

@@ -78,10 +78,13 @@ target_link_libraries(game PRIVATE
     ${LIBLZMA_LIBRARIES}
 )
 
+############################################
+# Копируем зависимости в директорию сборки #
+############################################
+
 add_custom_target(copy_assets
     COMMAND ${CMAKE_COMMAND} -E copy_directory "${CSD}/bin" "${CBD}/"
-    COMMENT "Copying config"
+    COMMENT "Copying assets"
 )
 
-# Ensure your executable depends on this target so it runs at build time
 add_dependencies(game copy_assets)

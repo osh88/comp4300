@@ -1330,6 +1330,7 @@ void Scene_Play::sWin() {
         t.z = 999;
 
         m_sWin.curtain = std::make_shared<Entity>(e);
+        m_player.addComponent<CInvincibility>(3600);
     }
 
     switch (m_sWin.state) {

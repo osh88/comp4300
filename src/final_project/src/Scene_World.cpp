@@ -345,27 +345,27 @@ void Scene_World::sDoAction(const Action & action) {
         else if (action.name() == "RELOAD")         { reload(); }
         // ======================================== ray castings
         else if (action.name() == "MOUSE_MOVE") {
-            //action.screenPos();
-            //action.pos();
+            // //action.screenPos();
+            // //action.pos();
 
-            Entity dot;
-            if (auto items = m_entityManager.getEntities("dot"); items.size() != 0) {
-                dot = items.at(0);
+            // Entity dot;
+            // if (auto items = m_entityManager.getEntities("dot"); items.size() != 0) {
+            //     dot = items.at(0);
 
-                if (items.size() > 1) {
-                    for (auto e : items) {
-                        if (e.id() != dot.id()) {
-                            e.destroy();
-                        }
-                    }
-                }
-            } else {
-                dot = m_entityManager.addEntity("dot");
-                dot.addComponent<CTransform>(Vec2(0, 0), 0);
-                dot.addComponent<CAnimation>(m_game->assets().getAnimation("Buster"), true);
-            }
+            //     if (items.size() > 1) {
+            //         for (auto e : items) {
+            //             if (e.id() != dot.id()) {
+            //                 e.destroy();
+            //             }
+            //         }
+            //     }
+            // } else {
+            //     dot = m_entityManager.addEntity("dot");
+            //     dot.addComponent<CTransform>(Vec2(0, 0), 0);
+            //     dot.addComponent<CAnimation>(m_game->assets().getAnimation("Buster"), true);
+            // }
 
-            dot.getComponent<CTransform>().pos = action.pos();
+            // dot.getComponent<CTransform>().pos = action.pos();
         }
         // ======================================== ray castings
     } else if (action.type() == "END") {

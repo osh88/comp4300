@@ -5,6 +5,9 @@ cmake_minimum_required(VERSION 3.15)
 set(CMAKE_CXX_STANDARD 20)
 project(game VERSION 1.0 LANGUAGES CXX)
 
+set(CSD ${CMAKE_CURRENT_SOURCE_DIR})
+set(CBD ${CMAKE_CURRENT_BINARY_DIR})
+
 ########################
 # Добавляем библиотеки #
 ########################
@@ -74,3 +77,11 @@ target_link_libraries(game PRIVATE
     OpenGL::GL
     ${LIBLZMA_LIBRARIES}
 )
+
+add_custom_target(copy_assets
+    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CSD}/bin" "${CBD}/"
+    COMMENT "Copying config"
+)
+
+# Ensure your executable depends on this target so it runs at build time
+add_dependencies(game copy_assets)

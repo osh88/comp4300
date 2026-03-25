@@ -185,41 +185,45 @@ void Assets::buildLargeTexture() {
 
     // Определяем размер большой текстуры
 
-    auto maxLineWidth = 5000;
+    const auto maxLineWidth = 5000;
     int lineCount = 1;
-    int lineWidth;
-    Vec2 wh = {0, 0};
+    Vec2 largeTexSize = {0, 0};
 
-    for (auto t : m_textures) {
-        auto s = t.second.size;
-        wh.x += s.x;
-        if (s.y > wh.y) {
-            wh.y = s.y;
-        }
+    // Вычисляем кол-во "строк" в большой текстуре.
+    // И длину строки, если большая текстура будет
+    // состоять из одной неполной строки.
+    for (int lineWidth{0}; const auto& t : m_textures) {
+        auto texSize = t.second.size;
 
-        lineWidth += s.x;
+        largeTexSize.x += texSize.x;
+        lineWidth += texSize.x;
         if (lineWidth > maxLineWidth) {
             lineCount++;
-            lineWidth = 0;
+            lineWidth = texSize.x; // "Переносим" текстуру на следующую строку
+        }
+
+        if (texSize.y > largeTexSize.y) {
+            largeTexSize.y = texSize.y;
         }
     }
 
-    auto lineHeight = wh.y;
-    if (wh.x > maxLineWidth) {
-        wh.x = maxLineWidth;
+    if (largeTexSize.x > maxLineWidth) {
+        largeTexSize.x = maxLineWidth;
     }
-    wh.y *= lineCount;
+
+    auto lineHeight = largeTexSize.y;
+    largeTexSize.y *= lineCount;
 
     // Создаем большую текстуру и копируем в нее все малые текстуры
-    
-    m_renderTexture = std::shared_ptr<sf::RenderTexture>(new sf::RenderTexture(wh));
+
+    m_renderTexture = std::shared_ptr<sf::RenderTexture>(new sf::RenderTexture(largeTexSize));
     m_renderTexture->clear(sf::Color::Transparent);
 
     Vec2 pos = {0, 0};
     for (auto& t : m_textures) {
         sf::Sprite sp(t.second.texture);
 
-        if (pos.x + t.second.size.x > wh.x) {
+        if (pos.x + t.second.size.x > largeTexSize.x) {
             pos.x = 0;
             pos.y += lineHeight;
         }
@@ -234,9 +238,9 @@ void Assets::buildLargeTexture() {
     // sf::RenderTexture переворачивает изображение, поэтому перед сохранением переворачиваем ее обратно
     m_image = m_renderTexture->getTexture().copyToImage();
     m_image.flipVertically();
-    
+
     m_largeTexture = std::shared_ptr<sf::Texture>(new sf::Texture());
-    
+
     if (!m_largeTexture->loadFromImage(m_image)) {
         std::cerr << "Assets::buildLargeTexture(): can't load texture from image" << std::endl;
     }
@@ -288,7 +292,7 @@ Animation::Animation(const std::string & name, const Texture & t, size_t frameCo
 void Animation::setSprite(const Texture & tex) {
     m_texture = tex;
     m_frameSize = Vec2(tex.size.x / m_frameCount, tex.size.y);
-    
+
     m_sprite = sf::Sprite(tex.texture);
     m_sprite.setOrigin(m_frameSize / 2.0);
 

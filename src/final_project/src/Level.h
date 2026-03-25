@@ -7,6 +7,7 @@
 #include "EntityManager.h"
 
 #include "Compress.h"
+#include "Profiler.h"
 
 #include "json.hpp"
 using json = nlohmann::json;
@@ -24,6 +25,8 @@ public:
     NLOHMANN_DEFINE_TYPE_INTRUSIVE_WITH_DEFAULT(Level, pool, entityManager, bgColor);
 
     static void loadFromFile(const std::string & path, GameEngine* game, EntityManager & em, sf::Color& bg) {
+        PROFILE_FUNCTION();
+
         std::cout << "Level::loadFromFile(" << path << ")" << std::endl;
 
         if (!std::filesystem::exists(path)) {
@@ -38,12 +41,17 @@ public:
         std::stringstream ss;
         LZMA::decompressStream(f, ss);
         f.close();
-        auto r = json::parse(ss);
 
-        r.at("pool").get_to(EntityMemoryPool::Instance());
-        r.at("entityManager").get_to(em);
-        r.at("bgColor").get_to(bgColor);
-        bg = sf::Color(bgColor);
+        {
+            PROFILE_SCOPE("json::parse()");
+
+            auto r = json::parse(ss);
+
+            r.at("pool").get_to(EntityMemoryPool::Instance());
+            r.at("entityManager").get_to(em);
+            r.at("bgColor").get_to(bgColor);
+            bg = sf::Color(bgColor);
+        }
 
         for (auto e : em.getEntities()) {
             auto& a = e.getComponent<CAnimation>().animation;
@@ -59,6 +67,7 @@ public:
     }
 
     static void save(const std::string & path, const EntityManager & em, sf::Color bgColor) {
+        PROFILE_FUNCTION();
         json j = Level(EntityMemoryPool::Instance(), em, bgColor);
 
         std::stringstream ss;

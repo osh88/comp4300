@@ -1,4 +1,5 @@
 #include "Compress.h"
+#include "Profiler.h"
 
 #include <iostream>
 #include <fstream>
@@ -8,6 +9,7 @@
 #include <lzma.h>
 
 void LZMA::decompressStream(std::istream& input, std::ostream& output) {
+    PROFILE_FUNCTION();
     lzma_stream stream = LZMA_STREAM_INIT;
     lzma_ret ret;
 
@@ -75,6 +77,7 @@ void LZMA::decompressStream(std::istream& input, std::ostream& output) {
 }
 
 void LZMA::compressStream(std::istream& input, std::ostream& output, uint32_t compressionLevel) {
+    PROFILE_FUNCTION();
     lzma_stream stream = LZMA_STREAM_INIT;
     lzma_ret ret;
 

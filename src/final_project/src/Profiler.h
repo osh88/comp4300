@@ -31,12 +31,12 @@ struct ProfileResult {
 class Profiler {
     std::string       m_outputFile = "profile.json";
     size_t            m_profileCount = 0;
-    
+
     std::ofstream     m_outputStream;
     std::vector<char> m_buffer;
-    
+
     std::mutex        m_lock;
-    
+
     Profiler();
     void writeHeader();
     void writeFooter();

@@ -15,6 +15,8 @@ profile.json
 /src/final_project/bin/libLLVM-21.dll
 /src/final_project/bin/lib/*
 /src/final_project/bin/config/levels/*.json
+/src/final_project/imgui.ini
+/src/final_project/tileset.png
 /mingw-w64
 
 *.snapshot

@@ -1,0 +1,11 @@
+CompileFlags:
+  Add:
+    [
+      -Isrc,
+      -Ideps/src,
+      -Ideps/src/imgui,
+      -Ideps/src/imgui/backends,
+      -Ideps/src/imgui/misc/cpp,
+      -Ideps/src/imgui-sfml,
+      -Ideps/linux/include,
+    ]

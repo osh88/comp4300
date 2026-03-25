@@ -81,6 +81,12 @@
 
 ## Final project
 
+```
+# Linux:
+sudo apt install cmake liblzma-dev
+./run.sh
+```
+
 <details>
   <summary>Screenshots</summary>
   

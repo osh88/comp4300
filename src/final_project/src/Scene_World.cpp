@@ -58,7 +58,7 @@ void Scene_World::init() {
         m_playerConfig.health = m_player.getComponent<CHealth>().max;
         m_playerConfig.gravity = m_player.getComponent<CGravity>().gravity;
     }
-    
+
     m_entityManager.update();
 
     // for (auto [a, item] : m_game->getSettings().keys) {
@@ -347,7 +347,7 @@ void Scene_World::sDoAction(const Action & action) {
         else if (action.name() == "MOUSE_MOVE") {
             //action.screenPos();
             //action.pos();
-            
+
             Entity dot;
             if (auto items = m_entityManager.getEntities("dot"); items.size() != 0) {
                 dot = items.at(0);
@@ -389,7 +389,7 @@ void Scene_World::sAI() {
             auto& t = e.getComponent<CTransform>();
             auto& p = e.getComponent<CPatrol>();
             auto currentPoint = p.positions.at(p.currentPosition);
-            
+
             if (t.pos.dist(currentPoint) < 5) {
                 p.currentPosition++;
                 if (p.currentPosition >= p.positions.size()) {
@@ -471,7 +471,7 @@ void Scene_World::sStatus() {
     for (auto e : m_entityManager.getEntities()) {
         if (e.hasComponent<CInvincibility>()) {
             e.getComponent<CInvincibility>().iframes -= 1;
-            
+
             if (e.getComponent<CInvincibility>().iframes <= 0) {
                 e.removeComponent<CInvincibility>();
             }
@@ -561,7 +561,7 @@ void Scene_World::sCollision() {
         // npc x sword
         if (swordIt.size() > 0 && (!n.hasComponent<CInvincibility>() || n.getComponent<CInvincibility>().iframes <= 0)) {
             auto sword = swordIt.at(0);
-            
+
             auto o = Physics::GetOverlap(sword, n);
             if (o.x != 0 && o.y != 0) {
                 n.getComponent<CHealth>().current -= m_player.getComponent<CDamage>().damage * m_game->getPlayerDamageCoeff();
@@ -607,7 +607,7 @@ void Scene_World::sCollision() {
                     if (nt.prevPos.x > nt.pos.x) {
                         nt.pos.x = nt.prevPos.x + 1;
                     } else {
-                        nt.pos.x = nt.prevPos.x - 1; 
+                        nt.pos.x = nt.prevPos.x - 1;
                     }
                 }
             }
@@ -686,7 +686,7 @@ void Scene_World::sCamera() {
 
     if (m_follow) {
         // calculate view for player follow camera
-        view.setCenter({p.x, p.y});  
+        view.setCenter({p.x, p.y});
     } else {
         // calculate view for room-based camera
         auto r = getRoomByPos(p);
@@ -694,7 +694,7 @@ void Scene_World::sCamera() {
         r.y *= 768;
         r.x += 1280/2;
         r.y += 768/2;
-        view.setCenter({r.x, r.y});  
+        view.setCenter({r.x, r.y});
     }
 
     // then set the window view
@@ -761,13 +761,18 @@ void Scene_World::sRender() {
                 auto pos = Vec2(transform.pos.x, transform.pos.y - e.getSize().y / 2.0 - a.getTexture().size.y - 10.0);
                 a.getSprite().setPosition(pos);
                 m_game->getVertexArrays().draw(a.getSprite(), "", m_game->assets().getLargeTexture());
+
+                if (e.tag() == "player" && m_currentFrame % 60 == 0) {
+                    // std::cout << "-->" << h.current << " " << h.max << " " << health << std::endl;
+                    std::cout << "-->" << a.getName() << a.getTexture().pos << a.getTexture().size << std::endl;
+                }
             }
         }}
     }
 
     // draw entities
     m_game->getVertexArrays().drawAll(m_game->window());
-    
+
     // draw the grid so that students can easily debug
     if (m_drawGrid) {
         PROFILE_SCOPE("drawGrid");
@@ -800,13 +805,13 @@ void Scene_World::sRender() {
 
     if (m_drawDebug) {
         PROFILE_SCOPE("drawDebug");
-        
+
         sf::RectangleShape rect;
         rect.setFillColor(sf::Color(0, 0, 0, 0));
         rect.setSize(sf::Vector2f(63, 63));
         rect.setOrigin(sf::Vector2f(32, 32));
         rect.setOutlineThickness(1);
-        
+
         // draw all Entity collision bounding boxes with a rectangle shape
         for (auto e : m_entityManager.getEntities()) {
             if (e.hasComponent<CBoundingBox>()) {
@@ -814,7 +819,7 @@ void Scene_World::sRender() {
                 auto blockVision = e.getComponent<CBoundingBox>().blockVision;
                 auto box = e.getBoundingBox();
                 auto & transform = e.getComponent<CTransform>();
-                
+
                 rect.setSize(sf::Vector2f(box.x - 1, box.y - 1));
                 rect.setOrigin(sf::Vector2f(box.x / 2.0, box.y / 2.0));
                 rect.setPosition({transform.pos.x, transform.pos.y });
@@ -823,7 +828,7 @@ void Scene_World::sRender() {
                 if (blockMove && !blockVision) { rect.setOutlineColor(sf::Color::Blue); }
                 if (!blockMove && blockVision) { rect.setOutlineColor(sf::Color::Red); }
                 if (!blockMove && !blockVision) { rect.setOutlineColor(sf::Color::White); }
-                
+
                 m_game->window().draw(rect);
             }
         }
@@ -878,7 +883,7 @@ void Scene_World::sRender() {
                 }
             }
         }
-        
+
         auto tilesAround = getTilesAround(getTileIndex(m_player.getComponent<CTransform>().pos));
         rect.setSize(sf::Vector2f(64, 64));
         rect.setOutlineColor(sf::Color::Red);
@@ -994,7 +999,7 @@ void Scene_World::sRender() {
     //             drop = true;
     //             break;
     //         }
-            
+
     //         if (auto res = Physics::LineIntersect(pos, r, b, c, dev); res.status && r != b && r != c) {
     //             drop = true;
     //             break;
@@ -1041,11 +1046,11 @@ void Scene_World::sRender() {
     //                 auto b = Vec2(ec.x + es.x, ec.y - es.y);
     //                 auto c = Vec2(ec.x + es.x, ec.y + es.y);
     //                 auto d = Vec2(ec.x - es.x, ec.y + es.y);
-                    
+
     //                 if (auto res = Physics::LineIntersect(pos, r, a, b); res.status && pos.dist(res.result) < pos.dist(r)) {
     //                     r = res.result;
     //                 }
-                    
+
     //                 if (auto res = Physics::LineIntersect(pos, r, b, c); res.status && pos.dist(res.result) < pos.dist(r)) {
     //                     r = res.result;
     //                 }
@@ -1157,7 +1162,7 @@ Vec2 Scene_World::getRoomByPos(const Vec2 & pos) {
 
 //         auto ep = e.getComponent<CTransform>().pos;
 //         auto es = e.getBoundingBox();
-        
+
 //         if (intersect(roomCenter, roomSize, ep, es)) {
 //             return true;
 //         }
@@ -1221,12 +1226,12 @@ void Scene_World::onPause(const std::string & nextScene) {
 }
 
 void Scene_World::onResume(const std::string & prevScene) {
-    
+
 }
 
 void Scene_World::sTeleport() {
     PROFILE_FUNCTION();
-    
+
     for (auto e : m_entityManager.getEntities()) {
         if (e.hasComponent<CTeleport>()) {
             auto prevLvl = e.getComponent<CTeleport>().level - 1;
@@ -1258,7 +1263,7 @@ void Scene_World::sTeleport() {
         auto e = m_entityManager.addEntity("tile");
         e.addComponent<CAnimation>(m_game->assets().getAnimation("Curtain"), true);
         e.getComponent<CAnimation>().animation.setAlpha(0);
-        
+
         auto vc = Vec2(m_game->window().getView().getCenter().x, m_game->window().getView().getCenter().y);
         //auto vs = Vec2(m_game->window().getView().getSize().x, m_game->window().getView().getSize().y);
         e.addComponent<CTransform>(vc-5);

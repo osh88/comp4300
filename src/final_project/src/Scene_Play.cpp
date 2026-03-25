@@ -347,7 +347,7 @@ void Scene_Play::sAI() {
             auto& t = npc.getComponent<CTransform>();
             auto& p = npc.getComponent<CPatrol>();
             auto currentPoint = p.positions.at(p.currentPosition);
-            
+
             if (t.pos.dist(currentPoint) < 5) {
                 p.currentPosition++;
                 if (p.currentPosition >= p.positions.size()) {
@@ -421,7 +421,7 @@ void Scene_Play::sAI() {
         auto& t = tile.getComponent<CTransform>();
         auto& p = tile.getComponent<CPatrol>();
         auto currentPoint = p.positions.at(p.currentPosition);
-        
+
         if (t.pos.dist(currentPoint) < 5) {
             p.currentPosition++;
             if (p.currentPosition >= p.positions.size()) {
@@ -466,7 +466,7 @@ void Scene_Play::sStatus() {
     for (auto e : m_entityManager.getEntities()) {
         if (e.hasComponent<CInvincibility>()) {
             e.getComponent<CInvincibility>().iframes -= 1;
-            
+
             if (e.getComponent<CInvincibility>().iframes <= 0) {
                 e.removeComponent<CInvincibility>();
             }
@@ -563,7 +563,7 @@ void Scene_Play::sCollision() {
             pt.move.x = pt.velocity.x + o.x;
             pt.velocity.x = e.getComponent<CTransform>().velocity.x;
         }
-        
+
         if (p.x != 0) {
             direction = pt.velocity.y > 0 ? "down" : "up";
             pt.move.y = pt.velocity.y + o.y - e.getComponent<CTransform>().velocity.y;
@@ -572,7 +572,7 @@ void Scene_Play::sCollision() {
                 pt.velocity.x = e.getComponent<CTransform>().velocity.x;
             }
         }
-        
+
         if (direction == "down") {
             ps.onAir = false;
             ps.run = (pi.left || pi.right);
@@ -624,14 +624,14 @@ void Scene_Play::sCollision() {
         }
 
         // weapon x npc
-        for (auto n : m_entityManager.getEntities("npc")) {        
+        for (auto n : m_entityManager.getEntities("npc")) {
             auto o = Physics::GetOverlap(b, n);
             if (o.x != 0 && o.y != 0) {
                 b.destroy();
 
                 if (n.hasComponent<CInvincibility>() && n.getComponent<CInvincibility>().iframes > 0) {
                     continue;
-                }          
+                }
 
                 n.getComponent<CHealth>().current -= m_player.getComponent<CDamage>().damage * m_game->getPlayerDamageCoeff();
                 n.addComponent<CInvincibility>(30);
@@ -667,7 +667,7 @@ void Scene_Play::sCollision() {
                         pt.move.x = pt.velocity.x + o.x;
                         pt.velocity.x = n.getComponent<CTransform>().velocity.x;
                     }
-                    
+
                     if (p.x != 0) {
                         direction = pt.velocity.y > 0 ? "down" : "up";
                         pt.move.y = pt.velocity.y + o.y - n.getComponent<CTransform>().velocity.y;
@@ -676,7 +676,7 @@ void Scene_Play::sCollision() {
                             pt.velocity.x = n.getComponent<CTransform>().velocity.x;
                         }
                     }
-                    
+
                     if (direction == "down") {
                         ps.onAir = false;
                         ps.run = (pi.left || pi.right);
@@ -730,7 +730,7 @@ void Scene_Play::sDoAction(const Action &action) {
         else if (action.name() == "MOVE_RIGHT")       { m_player.getComponent<CInput>().right = true; }
         else if (action.name() == "MOVE_UP")          { m_player.getComponent<CInput>().up = true; }
         else if (action.name() == "SHOOT")            { m_player.getComponent<CInput>().shoot = true; }
-        
+
         else if (action.name() == "INV_NUM0")         { if (!m_player.getComponent<CInput>().numPressed) { m_player.getComponent<CInput>().num = 0; m_player.getComponent<CInput>().numPressed = true; }}
         else if (action.name() == "INV_NUM1")         { if (!m_player.getComponent<CInput>().numPressed) { m_player.getComponent<CInput>().num = 1; m_player.getComponent<CInput>().numPressed = true; }}
         else if (action.name() == "INV_NUM2")         { if (!m_player.getComponent<CInput>().numPressed) { m_player.getComponent<CInput>().num = 2; m_player.getComponent<CInput>().numPressed = true; }}
@@ -741,7 +741,7 @@ void Scene_Play::sDoAction(const Action &action) {
         else if (action.name() == "INV_NUM7")         { if (!m_player.getComponent<CInput>().numPressed) { m_player.getComponent<CInput>().num = 7; m_player.getComponent<CInput>().numPressed = true; }}
         else if (action.name() == "INV_NUM8")         { if (!m_player.getComponent<CInput>().numPressed) { m_player.getComponent<CInput>().num = 8; m_player.getComponent<CInput>().numPressed = true; }}
         else if (action.name() == "INV_NUM9")         { if (!m_player.getComponent<CInput>().numPressed) { m_player.getComponent<CInput>().num = 9; m_player.getComponent<CInput>().numPressed = true; }}
-        
+
         else if (action.name() == "LEFT_CLICK") {
             auto mp = action.pos();
 
@@ -760,7 +760,7 @@ void Scene_Play::sDoAction(const Action &action) {
             auto x = std::max(playerX, (float)windowX);
 
             storeViewCenter(Vec2(x, getStoredViewCenter().y - delta.y));
-            
+
             m_sParallax.startViewPosX += delta.x;
             m_sParallax.startPlayerPosY -= delta.y;
         } else if (action.name() == "TOGGLE_SLOW") {
@@ -1101,7 +1101,7 @@ void Scene_Play::sRender() {
                     drop = true;
                     break;
                 }
-                
+
                 if (auto res = Physics::LineIntersect(pos, r, b, c, dev); res.status && r != b && r != c) {
                     drop = true;
                     break;
@@ -1148,11 +1148,11 @@ void Scene_Play::sRender() {
                         auto b = Vec2(ec.x + es.x, ec.y - es.y);
                         auto c = Vec2(ec.x + es.x, ec.y + es.y);
                         auto d = Vec2(ec.x - es.x, ec.y + es.y);
-                        
+
                         if (auto res = Physics::LineIntersect(pos, r, a, b); res.status && pos.dist(res.result) < pos.dist(r)) {
                             r = res.result;
                         }
-                        
+
                         if (auto res = Physics::LineIntersect(pos, r, b, c); res.status && pos.dist(res.result) < pos.dist(r)) {
                             r = res.result;
                         }
@@ -1398,7 +1398,7 @@ const std::string & Scene_Play::levelPath() const {
 
 void Scene_Play::sTeleport() {
     PROFILE_FUNCTION();
-    
+
     auto& levels = m_game->getSettings().levels;
 
     for (auto e : m_entityManager.getEntities()) {
@@ -1429,7 +1429,7 @@ void Scene_Play::sTeleport() {
         auto e = m_entityManager.addEntity("tile");
         e.addComponent<CAnimation>(m_game->assets().getAnimation("Curtain"), true);
         e.getComponent<CAnimation>().animation.setAlpha(0);
-        
+
         auto vc = Vec2(m_game->window().getView().getCenter().x, m_game->window().getView().getCenter().y);
         //auto vs = Vec2(m_game->window().getView().getSize().x, m_game->window().getView().getSize().y);
         e.addComponent<CTransform>(vc-5);

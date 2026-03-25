@@ -1320,7 +1320,7 @@ void Scene_Play::sWin() {
         e.addComponent<CAnimation>(m_game->assets().getAnimation("Curtain"), true);
         e.getComponent<CAnimation>().animation.setAlpha(0);
         e.getComponent<CAnimation>().animation.setMix(0.0);
-        
+
         auto vc = Vec2(m_game->window().getView().getCenter().x, m_game->window().getView().getCenter().y);
         //auto vs = Vec2(m_game->window().getView().getSize().x, m_game->window().getView().getSize().y);
         e.addComponent<CTransform>(vc-5);

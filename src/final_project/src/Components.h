@@ -81,7 +81,7 @@ public:
     bool left     = false;
     bool right    = false;
     bool shoot    = false;
-    
+
     int  num        = -1;
     bool numPressed = false;
 

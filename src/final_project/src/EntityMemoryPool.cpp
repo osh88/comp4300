@@ -49,7 +49,7 @@ void EntityMemoryPool::removeEntity(size_t entityID) {
     m_onDestroyF[entityID] = nullptr;
     m_active[entityID] = false;
     m_tags[entityID] = "";
-    
+
     removeComponent<CTransform>(entityID);
     removeComponent<CLifespan>(entityID);
     removeComponent<CDamage>(entityID);

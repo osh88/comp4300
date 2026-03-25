@@ -32,6 +32,11 @@ void EntityManager::update() {
 
 void EntityManager::removeDeadEntities(EntityVec &vec) {
     auto new_end = std::remove_if(vec.begin(), vec.end(), [](auto n) {
+        // ! Затираем все данные повторно, т.к. между уничтожением
+        // (обнулением) сущности и удалением ее из менеджера сущностей
+        // в нее могут быть внесены изменения.
+        if (!n.isActive()) { n.destroy(); };
+
         return !n.isActive();
     });
 

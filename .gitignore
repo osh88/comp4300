@@ -9,15 +9,11 @@ test.png
 remarks.txt
 profile.json
 
-etc/
+/src/final_project/etc/
 /src/final_project/doc
 /src/final_project/build
-/src/final_project/imgui.ini
-/src/final_project/tileset.png
 /src/final_project/bin/libLLVM-21.dll
 /src/final_project/bin/lib/*
-/src/final_project/bin/game
-/src/final_project/bin/game.exe
 /src/final_project/bin/config/levels/*.json
 /mingw-w64
 

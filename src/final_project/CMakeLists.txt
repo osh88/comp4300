@@ -9,29 +9,40 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CSD ${CMAKE_CURRENT_SOURCE_DIR})
 set(CBD ${CMAKE_CURRENT_BINARY_DIR})
 
+############################################
+# Копируем зависимости в директорию сборки #
+############################################
+
+add_custom_target(copy_assets
+    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CSD}/bin" "${CBD}/"
+    COMMENT "Copying assets"
+)
+
 ########################
 # Добавляем библиотеки #
 ########################
 
 add_library(sfml-audio SHARED IMPORTED)
 set_target_properties(sfml-audio PROPERTIES IMPORTED_LOCATION
-    "${CMAKE_SOURCE_DIR}/deps/linux/lib/libsfml-audio.so")
+    "${CBD}/lib/linux/libsfml-audio.so")
+
+add_dependencies(sfml-audio copy_assets)
 
 add_library(sfml-graphics SHARED IMPORTED)
 set_target_properties(sfml-graphics PROPERTIES IMPORTED_LOCATION
-    "${CMAKE_SOURCE_DIR}/deps/linux/lib/libsfml-graphics.so")
+    "${CBD}/lib/linux/libsfml-graphics.so")
 
 add_library(sfml-network SHARED IMPORTED)
 set_target_properties(sfml-network PROPERTIES IMPORTED_LOCATION
-    "${CMAKE_SOURCE_DIR}/deps/linux/lib/libsfml-network.so")
+    "${CBD}/lib/linux/libsfml-network.so")
 
 add_library(sfml-system SHARED IMPORTED)
 set_target_properties(sfml-system PROPERTIES IMPORTED_LOCATION
-    "${CMAKE_SOURCE_DIR}/deps/linux/lib/libsfml-system.so")
+    "${CBD}/lib/linux/libsfml-system.so")
 
 add_library(sfml-window SHARED IMPORTED)
 set_target_properties(sfml-window PROPERTIES IMPORTED_LOCATION
-    "${CMAKE_SOURCE_DIR}/deps/linux/lib/libsfml-window.so")
+    "${CBD}/lib/linux/libsfml-window.so")
 
 find_package(OpenGL REQUIRED)
 find_package(LibLZMA REQUIRED) # sudo apt install liblzma-dev
@@ -78,14 +89,3 @@ target_link_libraries(game PRIVATE
     OpenGL::GL
     ${LIBLZMA_LIBRARIES}
 )
-
-############################################
-# Копируем зависимости в директорию сборки #
-############################################
-
-add_custom_target(copy_assets
-    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CSD}/bin" "${CBD}/"
-    COMMENT "Copying assets"
-)
-
-add_dependencies(game copy_assets)

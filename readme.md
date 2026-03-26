@@ -16,7 +16,17 @@ Or (without sound):
 <details>
   <summary>Screenshots</summary>
   
-  ![Final project screenshot](media/fp/1.png)
+  ![FP screenshot](media/fp/1.png)
+  ![FP screenshot](media/fp/2.png)
+  ![FP screenshot](media/fp/3.png)
+  ![FP screenshot](media/fp/4.png)
+  ![FP screenshot](media/fp/5.png)
+  ![FP screenshot](media/fp/6.png)
+  ![FP screenshot](media/fp/7.png)
+  ![FP screenshot](media/fp/8.png)
+  ![FP screenshot](media/fp/9.png)
+  ![FP screenshot](media/fp/10.png)
+  ![FP screenshot](media/fp/11.png)
 </details>
 
 <details>

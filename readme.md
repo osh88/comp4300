@@ -3,7 +3,7 @@
 
 ## Assignment 1
 
-```
+```sh
 clang++ -std=c++20 -I ../../sfml-linux/include -L ../../sfml-linux/lib \
   -lsfml-window -lsfml-audio -lsfml-system -lsfml-graphics \
   -rpath "\$ORIGIN/../../sfml-linux/lib" *.cpp && ./a.out
@@ -24,7 +24,7 @@ clang++ -std=c++20 -I ../../sfml-linux/include -L ../../sfml-linux/lib \
 
 ## Assignment 2
 
-```
+```sh
 clang++ -std=c++20 -I ../../sfml-linux/include -L ../../sfml-linux/lib \
   -lsfml-window -lsfml-audio -lsfml-system -lsfml-graphics \
   -rpath "\$ORIGIN/../../sfml-linux/lib" *.cpp && ./a.out
@@ -45,7 +45,7 @@ clang++ -std=c++20 -I ../../sfml-linux/include -L ../../sfml-linux/lib \
 
 ## Assignment 3
 
-```
+```sh
 clang++ -std=c++20 -I ../../sfml-linux/include -L ../../sfml-linux/lib \
   -lsfml-window -lsfml-audio -lsfml-system -lsfml-graphics \
   -rpath "\$ORIGIN/../../sfml-linux/lib" *.cpp && ./a.out
@@ -77,7 +77,7 @@ clang++ -std=c++20 -I ../../sfml-linux/include -L ../../sfml-linux/lib \
 
 ## Assignment 4
 
-```
+```sh
 clang++ -std=c++20 -I ../../sfml-linux/include -L ../../sfml-linux/lib \
   -lsfml-window -lsfml-audio -lsfml-system -lsfml-graphics \
   -rpath "\$ORIGIN/../../sfml-linux/lib" *.cpp && ./a.out
@@ -105,8 +105,9 @@ clang++ -std=c++20 -I ../../sfml-linux/include -L ../../sfml-linux/lib \
 
 ## Final project
 
-```
-sudo apt install cmake libgl1-mesa-dev mesa-common-dev liblzma-dev libvorbis-dev libfreetype6-dev libxrandr2 libxcursor1 libxi6
+```sh
+sudo apt install cmake libgl1-mesa-dev mesa-common-dev liblzma-dev libvorbis-dev \
+  libfreetype6-dev libxrandr2 libxcursor1 libxi6
 ./run.sh
 ```
 Or (without sound):

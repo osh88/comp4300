@@ -3,6 +3,12 @@
 
 ## Assignment 1
 
+```
+clang++ -std=c++20 -I ../../sfml-linux/include -L ../../sfml-linux/lib \
+  -lsfml-window -lsfml-audio -lsfml-system -lsfml-graphics \
+  -rpath "\$ORIGIN/../../sfml-linux/lib" *.cpp && ./a.out
+```
+
 <details>
   <summary>Screenshots</summary>
   
@@ -18,6 +24,12 @@
 
 ## Assignment 2
 
+```
+clang++ -std=c++20 -I ../../sfml-linux/include -L ../../sfml-linux/lib \
+  -lsfml-window -lsfml-audio -lsfml-system -lsfml-graphics \
+  -rpath "\$ORIGIN/../../sfml-linux/lib" *.cpp && ./a.out
+```
+
 <details>
   <summary>Screenshots</summary>
   
@@ -32,6 +44,12 @@
 
 
 ## Assignment 3
+
+```
+clang++ -std=c++20 -I ../../sfml-linux/include -L ../../sfml-linux/lib \
+  -lsfml-window -lsfml-audio -lsfml-system -lsfml-graphics \
+  -rpath "\$ORIGIN/../../sfml-linux/lib" *.cpp && ./a.out
+```
 
 <details>
   <summary>Screenshots</summary>
@@ -59,6 +77,12 @@
 
 ## Assignment 4
 
+```
+clang++ -std=c++20 -I ../../sfml-linux/include -L ../../sfml-linux/lib \
+  -lsfml-window -lsfml-audio -lsfml-system -lsfml-graphics \
+  -rpath "\$ORIGIN/../../sfml-linux/lib" *.cpp && ./a.out
+```
+
 <details>
   <summary>Screenshots</summary>
   
@@ -82,9 +106,12 @@
 ## Final project
 
 ```
-# Linux:
-sudo apt install cmake liblzma-dev
+sudo apt install cmake libgl1-mesa-dev mesa-common-dev liblzma-dev libvorbis-dev libfreetype6-dev libxrandr2 libxcursor1 libxi6
 ./run.sh
+```
+Or (without sound):
+```
+./run-docker.sh
 ```
 
 <details>

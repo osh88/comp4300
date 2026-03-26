@@ -111,7 +111,7 @@ sudo apt install cmake libgl1-mesa-dev mesa-common-dev liblzma-dev libvorbis-dev
 ./run.sh
 ```
 Or (without sound):
-```
+```sh
 ./run-docker.sh
 ```
 

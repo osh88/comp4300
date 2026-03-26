@@ -1,6 +1,29 @@
 # COMP 4300 - Intro to C++ Game Programming (2022-09) by Dave Churchill
 [Link to youtube playlist](https://www.youtube.com/playlist?list=PL_xRyXins848nDj2v-TJYahzvs-XW9sVV)
 
+## Final project
+
+```sh
+sudo apt install cmake libgl1-mesa-dev mesa-common-dev liblzma-dev libvorbis-dev \
+  libfreetype6-dev libxrandr2 libxcursor1 libxi6
+./run.sh
+```
+Or (without sound):
+```sh
+./run-docker.sh
+```
+
+<details>
+  <summary>Screenshots</summary>
+  
+  ![Final project screenshot](media/fp/1.png)
+</details>
+
+<details>
+  <summary>Video</summary>
+  
+</details>
+
 ## Assignment 1
 
 ```sh
@@ -101,27 +124,4 @@ clang++ -std=c++20 -I ../../sfml-linux/include -L ../../sfml-linux/lib \
   <summary>Video</summary>
   
   https://github.com/user-attachments/assets/b8297a07-0692-4265-a212-b162753c3631
-</details>
-
-## Final project
-
-```sh
-sudo apt install cmake libgl1-mesa-dev mesa-common-dev liblzma-dev libvorbis-dev \
-  libfreetype6-dev libxrandr2 libxcursor1 libxi6
-./run.sh
-```
-Or (without sound):
-```sh
-./run-docker.sh
-```
-
-<details>
-  <summary>Screenshots</summary>
-  
-  ![Final project screenshot](media/fp/1.png)
-</details>
-
-<details>
-  <summary>Video</summary>
-  
 </details>

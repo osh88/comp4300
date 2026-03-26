@@ -5,6 +5,7 @@
 #include <chrono>
 #include <thread>
 #include <mutex>
+#include <algorithm>
 
 const size_t BUFF_SIZE = 20*1024*1024;
 
@@ -43,7 +44,7 @@ void Profiler::write(const ProfileResult & r) {
 
     std::string name = r.name;
     std::replace(name.begin(), name.end(), '"', '\'');
-    
+
     m_outputStream << "\n{";
     m_outputStream << "\"cat\":\"function\",";
     m_outputStream << "\"dur\":" << (r.end - r.start) << ",";

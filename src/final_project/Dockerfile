@@ -1,16 +1,17 @@
-# docker build -t comp4300_final_project . && docker run --rm -it -v .:/final_project --name comp4300_final_project comp4300_final_project
+# Run:
+# xhost +local: && sudo docker build -t comp4300_final_project . && sudo docker run --rm -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:ro -v .:/final_project --name comp4300_final_project comp4300_final_project && sudo chown -R $USER:$USER .
+#
+# Build:
+# sudo docker build -t comp4300_final_project . && sudo docker run --rm -it -v .:/final_project --name comp4300_final_project comp4300_final_project && sudo chown -R $USER:$USER .
 
-FROM debian:13-slim
+FROM xianpengshen/clang-tools:22
+ENV CXX=/usr/bin/clang-22
 
 RUN apt-get update
-RUN apt-get install -y cmake liblzma-dev wget
-
-WORKDIR /var
-RUN wget "https://github.com/llvm/llvm-project/releases/download/llvmorg-22.1.2/LLVM-22.1.2-Linux-X64.tar.xz"
-RUN apt-get install -y xz-utils
-
-RUN tar -xvJf LLVM-22.1.2-Linux-X64.tar.xz
-ENV CXX=/var/LLVM-22.1.2-Linux-X64/bin/clang++
+RUN apt-get install -y cmake libgl1-mesa-dev mesa-common-dev liblzma-dev libvorbis-dev libfreetype6-dev libxrandr2 libxcursor1 libxi6
 
 WORKDIR /final_project
-ENTRYPOINT /final_project/rebuild.sh
+
+#CMD ["/final_project/rebuild.sh"]
+#CMD ["/final_project/run.sh"]
+CMD ["/usr/bin/bash"]

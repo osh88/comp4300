@@ -3,6 +3,11 @@
 
 cmake_minimum_required(VERSION 3.15)
 set(CMAKE_CXX_STANDARD 20)
+# set(CMAKE_CXX_STANDARD_REQUIRED ON)
+# set(CMAKE_CXX_EXTENSIONS OFF)
+
+set(CMAKE_BUILD_RPATH "\$ORIGIN/lib/linux")
+
 project(game VERSION 1.0 LANGUAGES CXX)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -14,7 +19,7 @@ set(CBD ${CMAKE_CURRENT_BINARY_DIR})
 ############################################
 
 add_custom_target(copy_assets
-    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CSD}/bin" "${CBD}/"
+    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CSD}/assets" "${CBD}/"
     COMMENT "Copying assets"
 )
 
@@ -43,6 +48,10 @@ set_target_properties(sfml-system PROPERTIES IMPORTED_LOCATION
 add_library(sfml-window SHARED IMPORTED)
 set_target_properties(sfml-window PROPERTIES IMPORTED_LOCATION
     "${CBD}/lib/linux/libsfml-window.so")
+
+add_library(flac SHARED IMPORTED)
+set_target_properties(flac PROPERTIES IMPORTED_LOCATION
+    "${CBD}/lib/linux/libFLAC.so.12")
 
 find_package(OpenGL REQUIRED)
 find_package(LibLZMA REQUIRED) # sudo apt install liblzma-dev
@@ -88,4 +97,12 @@ target_link_libraries(game PRIVATE
     sfml-window
     OpenGL::GL
     ${LIBLZMA_LIBRARIES}
+    stdc++
+    m
+    flac
+)
+
+set_target_properties(game PROPERTIES
+  INSTALL_RPATH "\$ORIGIN/lib/linux"
+  BUILD_WITH_INSTALL_RPATH TRUE
 )

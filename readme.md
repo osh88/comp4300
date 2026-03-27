@@ -32,6 +32,9 @@ Or (without sound):
 <details>
   <summary>Video</summary>
   
+  https://github.com/user-attachments/assets/1834927a-4df9-449a-b9a6-2038b35dbe45
+
+  https://github.com/user-attachments/assets/eab2618f-e71f-4375-bbf7-8b573bf85a38
 </details>
 
 ## Assignment 1

@@ -31,6 +31,14 @@ Or (without sound):
 
 <details>
   <summary>Video</summary>
+
+  FHD (YouTube):
+  [Gameplay]()
+  [Editor]()
+
+  FHD (VKVideo):
+  [Gameplay](https://vkvideo.ru/video-237120296_456239017)
+  [Editor](https://vkvideo.ru/video-237120296_456239018)
   
   https://github.com/user-attachments/assets/1834927a-4df9-449a-b9a6-2038b35dbe45
 

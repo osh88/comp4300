@@ -33,8 +33,6 @@ Or (without sound):
   <summary>Video</summary>
 
   FHD (YouTube):  
-  [![Video Thumbnail](https://img.youtube.com/vi/9Du9SIlmt18/0.jpg)](https://youtu.be/9Du9SIlmt18)  
-  [![Video Thumbnail](https://img.youtube.com/vi/i66JdeTbrk0/0.jpg)](https://youtu.be/i66JdeTbrk0)  
 
   [Gameplay](https://youtu.be/9Du9SIlmt18)  
   [Editor](https://youtu.be/i66JdeTbrk0)  

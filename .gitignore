@@ -17,6 +17,7 @@ profile.json
 /src/final_project/bin/config/levels/*.json
 /src/final_project/imgui.ini
 /src/final_project/tileset.png
+/media/fp/src/
 /mingw-w64
 
 *.snapshot

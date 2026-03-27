@@ -31,7 +31,7 @@ Or (without sound):
 
 <details>
   <summary>Video</summary>
-
+  
   FHD (YouTube):  
   [Gameplay](https://youtu.be/9Du9SIlmt18)  
   [Editor](https://youtu.be/i66JdeTbrk0)  

@@ -36,7 +36,7 @@ Or (without sound):
 
   https://github.com/user-attachments/assets/eab2618f-e71f-4375-bbf7-8b573bf85a38
 
-  https://github.com/user-attachments/assets/b073f02d-fd83-44fa-aeb4-195aff8b8c52
+  https://github.com/user-attachments/assets/da3aa48b-f356-4091-a1b7-7d477459cd1b
 </details>
 
 ## Assignment 1

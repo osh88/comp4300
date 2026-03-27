@@ -33,12 +33,15 @@ Or (without sound):
   <summary>Video</summary>
 
   FHD (YouTube):
-  [Gameplay](https://youtu.be/9Du9SIlmt18)
-  [Editor](https://youtu.be/i66JdeTbrk0)
+  [![Video Thumbnail](https://img.youtube.com/vi/9Du9SIlmt18/0.jpg)](https://youtu.be/9Du9SIlmt18)  
+  [![Video Thumbnail](https://img.youtube.com/vi/i66JdeTbrk0/0.jpg)](https://youtu.be/i66JdeTbrk0)  
+
+  [Gameplay](https://youtu.be/9Du9SIlmt18)  
+  [Editor](https://youtu.be/i66JdeTbrk0)  
 
   FHD (VKVideo):
-  [Gameplay](https://vkvideo.ru/video-237120296_456239017)
-  [Editor](https://vkvideo.ru/video-237120296_456239018)
+  [Gameplay](https://vkvideo.ru/video-237120296_456239017)  
+  [Editor](https://vkvideo.ru/video-237120296_456239018)  
   
   https://github.com/user-attachments/assets/1834927a-4df9-449a-b9a6-2038b35dbe45
 

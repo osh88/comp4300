@@ -33,8 +33,8 @@ Or (without sound):
   <summary>Video</summary>
 
   FHD (YouTube):
-  [Gameplay]()
-  [Editor]()
+  [Gameplay](https://youtu.be/9Du9SIlmt18)
+  [Editor](https://youtu.be/i66JdeTbrk0)
 
   FHD (VKVideo):
   [Gameplay](https://vkvideo.ru/video-237120296_456239017)

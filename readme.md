@@ -1,5 +1,5 @@
 # COMP 4300 - Intro to C++ Game Programming (2022-09) by Dave Churchill
-[Link to youtube playlist](https://www.youtube.com/playlist?list=PL_xRyXins848nDj2v-TJYahzvs-XW9sVV)
+[Link to youtube playlist](https://www.youtube.com/watch?v=S7lXSihz0ac&list=PL_xRyXins848nDj2v-TJYahzvs-XW9sVV)
 
 ## Final project
 

@@ -123,7 +123,7 @@ void Scene_Menu::sDoAction(const Action& action) {
             }
 
             auto& level = m_game->getSettings().levels[m_selectedMenuIndex];
-            
+
             if (auto s = m_game->getScene("PLAY"); s != nullptr) {
                 if (s->levelPath() != level.path) {
                     m_game->deleteScene("PLAY");
@@ -172,7 +172,7 @@ void Scene_Menu::sRender() {
     shader->setUniform("u_resolution", sf::Vector2f(m_game->window().getSize().x, m_game->window().getSize().y));
     shader->setUniform("u_time", (float)m_currentFrame/60);
     m_game->getVertexArrays().draw(m_bg, "Pices", nullptr, shader);
-    
+
     m_game->getVertexArrays().drawAll(m_game->window());
 
     // draw title

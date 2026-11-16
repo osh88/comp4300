@@ -1,13 +1,14 @@
 #include "Action.h"
 
 #include <sstream>
+#include <string_view>
 
-Action::Action(const std::string & name, const std::string & type)
+Action::Action(std::string_view name, std::string_view type)
     : m_name(name)
     , m_type(type)
 {}
 
-Action::Action(const std::string & name, const std::string & type, const Vec2& pos, const Vec2& screenPos)
+Action::Action(std::string_view name, std::string_view type, const Vec2& pos, const Vec2& screenPos)
     : m_name(name)
     , m_type(type)
     , m_pos(pos)

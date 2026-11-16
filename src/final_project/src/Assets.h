@@ -24,8 +24,8 @@ public:
     std::string path;
     sf::Font    font;
 
-    Font() {}
-    
+    Font() = default;
+
     Font(const std::string & p, sf::Font& f)
         : path(p)
         , font(f)
@@ -38,8 +38,8 @@ class Sound {
 
 public:
 
-    Sound() {}
-    
+    Sound() = default;
+
     Sound(const std::string& path) {
         m_buffer = sf::SoundBuffer();
         if (!m_buffer.loadFromFile(path)) {
@@ -84,8 +84,9 @@ public:
     Vec2        pos  = {0, 0};
     Vec2        size = {0, 0};
 
-    Texture() {}
-    Texture(const sf::Texture & tex, const std::string & name, Vec2 pos, Vec2 size) : texture(tex), name(name), pos(pos), size(size) {}
+    Texture() = default;
+
+    Texture(const sf::Texture & tex, std::string_view name, Vec2 pos, Vec2 size) : texture(tex), name(name), pos(pos), size(size) {}
 
     NLOHMANN_DEFINE_TYPE_INTRUSIVE_WITH_DEFAULT(Texture, name, pos, size)
 };
@@ -116,19 +117,19 @@ public:
     const std::string & getName() const;
     const Texture & getTexture() const;
     const Vec2 & frameSize() const;
-    
+
     sf::Sprite & getSprite();
     void setSprite(const Texture & t);
-    
+
     uint8_t getAlpha() const;
     void setAlpha(uint8_t v);
-    
+
     const sf::Color getColor() const;
     void setColor(sf::Color);
-    
+
     const std::string & getShader();
     void setShader(const std::string & c);
-    
+
     float getMix() const;
     void setMix(float v);
 };

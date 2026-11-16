@@ -3,6 +3,7 @@
 #include "Vec2.h"
 
 #include <string>
+#include <string_view>
 
 class Action {
     std::string m_name = "NONE";
@@ -12,9 +13,9 @@ class Action {
 
 public:
 
-    Action();
-    Action(const std::string & name, const std::string & type);
-    Action(const std::string & name, const std::string & type, const Vec2& pos, const Vec2& screenPos = {0, 0});
+    Action() = default;
+    Action(std::string_view name, std::string_view type);
+    Action(std::string_view name, std::string_view type, const Vec2& pos, const Vec2& screenPos = {0, 0});
 
     const std::string & name() const;
     const std::string & type() const;

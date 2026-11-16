@@ -49,13 +49,13 @@ void Inventory::delArtefact(const std::string & name, bool all) {
 
         // Если оружие закончилось, выбираем следующее самое сильное (в списке выбранных предметов)
         if (m_currentWeapon == index) {
-            int index = -1; 
+            int index = -1;
             int damage = 0;
 
             for (auto idx : m_selected) {
                 if (idx < 0) { continue; }
 
-                if (m_artefacts[idx].has && m_artefacts[idx].artefact.group == AG_WEAPON && m_artefacts[idx].artefact.type == AT_DAMAGE && m_artefacts[idx].artefact.value > damage) {
+                if (m_artefacts[idx].has && m_artefacts[idx].artefact.group == ArtefactGroup::WEAPON && m_artefacts[idx].artefact.type == ArtefactType::DAMAGE && m_artefacts[idx].artefact.value > damage) {
                     damage = m_artefacts[idx].artefact.value;
                     index = idx;
                 }
@@ -89,7 +89,7 @@ void Inventory::selectArtefact(int index) {
             idx = index;
 
             // Если предмет является оружием, используем его
-            if (m_artefacts[index].artefact.group == AG_WEAPON) {
+            if (m_artefacts[index].artefact.group == ArtefactGroup::WEAPON) {
                 m_currentWeapon = index;
             }
 
@@ -118,21 +118,21 @@ void Inventory::useArtefact(int i, Entity & player) {
     }
 
     auto art = m_artefacts[i].artefact;
-    if (art.group == AG_WEAPON) {
+    if (art.group == ArtefactGroup::WEAPON) {
         m_currentWeapon = i;
         return;
     }
 
     switch (art.type) {
-        case AT_NONE: {
+        case ArtefactType::NONE: {
             break;
         }
 
-        case AT_DAMAGE: {
+        case ArtefactType::DAMAGE: {
             break;
         }
 
-        case AT_HEALING: {
+        case ArtefactType::HEALING: {
             auto& c = player.getComponent<CHealth>();
             c.current += art.value;
             if (c.current > c.max) { c.current = c.max; }
@@ -140,20 +140,20 @@ void Inventory::useArtefact(int i, Entity & player) {
             break;
         }
 
-        case AT_INVINCIBILITY: {
+        case ArtefactType::INVINCIBILITY: {
             player.addComponent<CInvincibility>(art.lifetime);
             delArtefact(art.name);
             break;
         }
 
-        case AT_ANTIGRAVITY: {
+        case ArtefactType::ANTIGRAVITY: {
             player.getComponent<CGravity>().antiGravity = art.value;
             player.getComponent<CGravity>().antiGravLifetime = art.lifetime;
             delArtefact(art.name);
             break;
         }
 
-        case AT_SPEED: {
+        case ArtefactType::SPEED: {
             // player.getComponent<CTransform>().velocity.x = art.value;
             // player.getComponent<CTransform>().forcedSpeedX = art.value;
             // player.getComponent<CTransform>().forcedSpeedLifetime = art.lifetime;

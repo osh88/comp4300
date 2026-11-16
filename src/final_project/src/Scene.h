@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Action.h"
-#include "EntityManager.h"
+#include "entities/EntityManager.h"
 #include "GameEngine.h"
 
 #include <memory>
@@ -24,7 +24,7 @@ struct KeyAction {
         if (control != v.control) return control < v.control;
         if (shift != v.shift)     return shift < v.shift;
         if (alt != v.alt)         return alt < v.alt;
-        
+
         return system < v.system;
     }
 
@@ -72,7 +72,7 @@ public:
     bool hasEnded() const;
     std::optional<std::string> getAction(KeyAction key) const;
     void drawLine(const Vec2 & p1, const Vec2 & p2, sf::Color color = sf::Color::Black);
-    
+
     void storeViewCenter(const Vec2 & pos);
     const Vec2 & getStoredViewCenter() const;
     // void setViewSize(const Vec2 & s);

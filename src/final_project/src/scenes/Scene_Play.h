@@ -4,7 +4,7 @@
 #include <map>
 #include <memory>
 
-#include "EntityManager.h"
+#include "entities/EntityManager.h"
 
 typedef std::vector<std::vector<Entity>> TilesMatrix;
 
@@ -44,7 +44,7 @@ protected:
     sf::Text     m_playerState;
     Vec2         m_mousePos;
     bool         m_slow = false;
-    
+
     Vec2         m_leftBottomOfLevel;
 
     SWin         m_sWin;

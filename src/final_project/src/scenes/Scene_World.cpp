@@ -2,11 +2,11 @@
 #include "Physics.h"
 #include "Assets.h"
 #include "GameEngine.h"
-#include "Components.h"
+#include "entities/Components.h"
 #include "SFML/Window/Keyboard.hpp"
 #include "SFML/Graphics/Color.hpp"
 #include "Scene_Menu.h"
-#include "Profiler.h"
+#include "utils/Profiler.h"
 #include "Scene_Play.h"
 #include "Level.h"
 

@@ -1,5 +1,5 @@
 #include "VertexArray.h"
-#include "Profiler.h"
+#include "utils/Profiler.h"
 
 VertexArray::VertexArray(int capacity) {
     m_vertices = sf::VertexArray(sf::PrimitiveType::Triangles, capacity * 6);

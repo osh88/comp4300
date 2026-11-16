@@ -1,7 +1,7 @@
 #include "EntityManager.h"
 #include "EntityMemoryPool.h"
 #include "Entity.h"
-#include "Profiler.h"
+#include "utils/Profiler.h"
 
 EntityManager::EntityManager() {
     //EntityMemoryPool::Instance().clear();

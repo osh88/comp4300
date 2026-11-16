@@ -3,7 +3,7 @@
 #include "Assets.h"
 #include "SFML/Graphics/RenderWindow.hpp"
 #include "Settings.h"
-#include "VertexArrays.h"
+#include "vertex/VertexArrays.h"
 #include "Inventory.h"
 
 #include <memory>
@@ -65,7 +65,7 @@ public:
     void setSoundVolume();
     std::shared_ptr<Scene> getScene(const std::string& name);
     void deleteScene(const std::string& name);
-    
+
     const std::string & getExeDir();
     Settings& getSettings();
     void loadSettings();

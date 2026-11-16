@@ -1,10 +1,10 @@
 #include "GameEngine.h"
 #include "Assets.h"
 #include "scenes/Scene_Menu.h"
-#include "Profiler.h"
+#include "utils/Profiler.h"
 #include "imgui.h"
 #include "imgui-SFML.h"
-#include "Helpers.h"
+#include "utils/Helpers.h"
 
 #include <SFML/Graphics.hpp>
 #include <iostream>

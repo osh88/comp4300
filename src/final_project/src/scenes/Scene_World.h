@@ -4,7 +4,7 @@
 #include <map>
 #include <memory>
 
-#include "EntityManager.h"
+#include "entities/EntityManager.h"
 
 #include "json.hpp"
 using json = nlohmann::json;
@@ -44,7 +44,7 @@ protected:
     bool         m_follow = true;
     sf::Text     m_frameTime;
     STeleport    m_sTeleport;
-    
+
     TilesMatrix  m_tiles;
     Vec2         m_shift = {0, 0};
 
@@ -64,7 +64,7 @@ protected:
     void sWin();
     void sTeleport();
 
-    void setPaused(bool v); 
+    void setPaused(bool v);
     void setAnimation(Entity e, const std::string & animName, bool repeat, float scale);
     void setBoundingBox(Entity e, Vec2 bb, bool blockMove, bool blockVision);
     Vec2 getRoomByPos(const Vec2 & pos);

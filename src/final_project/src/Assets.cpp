@@ -1,5 +1,5 @@
 #include "Assets.h"
-#include "Profiler.h"
+#include "utils/Profiler.h"
 
 #include <fstream>
 #include <iostream>

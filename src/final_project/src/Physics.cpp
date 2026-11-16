@@ -1,5 +1,5 @@
 #include "Physics.h"
-#include "Components.h"
+#include "entities/Components.h"
 
 Vec2 Physics::GetOverlap(Entity a, Entity b) {
     if (!a.hasComponent<CBoundingBox>() || !b.hasComponent<CBoundingBox>()) {
@@ -82,7 +82,7 @@ Intersect Physics::LineIntersect(const Vec2 & a, const Vec2 & b, const Vec2 & c,
     // (r x s) = -(s x r)
     // u = -(r x (a - c)) / -(r x s)
     // u = (r x (a - c)) / (r x s) = (r x a - r x c) / (r x s) = (-(a x r) + (c x r)) / (r x s) = ((c x r)-(a x r)) / (r x s) = ((c - a) x r) / (r x s)
-    
+
     // u = ((c - a) x r) / (r x s)
     // t = ((c - a) x s) / (r x s)
 

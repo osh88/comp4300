@@ -4,7 +4,7 @@
 #include "Scene_Editor.h"
 #include "Scene_Settings.h"
 #include "SFML/Graphics/Text.hpp"
-#include "Helpers.h"
+#include "utils/Helpers.h"
 
 #include <iostream>
 using H = Helpers;

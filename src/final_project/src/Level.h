@@ -3,11 +3,11 @@
 #include <fstream>
 
 #include "GameEngine.h"
-#include "EntityMemoryPool.h"
-#include "EntityManager.h"
+#include "entities/EntityMemoryPool.h"
+#include "entities/EntityManager.h"
 
-#include "Compress.h"
-#include "Profiler.h"
+#include "utils/Compress.h"
+#include "utils/Profiler.h"
 
 #include "json.hpp"
 using json = nlohmann::json;

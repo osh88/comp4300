@@ -1,6 +1,6 @@
 #include "GameEngine.h"
-#include "Profiler.h"
-#include "Helpers.h"
+#include "utils/Profiler.h"
+#include "utils/Helpers.h"
 #include "cxxopts.hpp"
 
 int main(int argc, char* argv[]) {

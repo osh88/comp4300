@@ -5,7 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include <map>
 #include <vector>
-#include "Entity.h"
+#include "entities/Entity.h"
 
 class Inventory {
     struct Item {

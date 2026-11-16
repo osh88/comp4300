@@ -15,12 +15,11 @@ concept SameAsVec2 = requires(T o) {
 template <typename T>
 concept Numeric = std::integral<T> || std::floating_point<T>;
 
-class Vec2 {
-public:
+struct Vec2 {
     float x = 0;
     float y = 0;
 
-    Vec2() {};
+    Vec2() = default;
 
     explicit Vec2(float xy) : x(xy), y(xy) {};
 

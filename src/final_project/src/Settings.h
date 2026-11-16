@@ -24,7 +24,7 @@ public:
         bool        pass = false;
         std::string shader = "Firework0";
 
-        Level() {};
+        Level() = default;
 
         Level(const std::string & path, bool userLevel = false, bool world = false, bool pass = false, const std::string & shader = "Firework0") : path(path), userLevel(userLevel), world(world), pass(pass), shader(shader) {};
 
@@ -38,7 +38,7 @@ public:
         sf::Keyboard::Key key;
         size_t            index;
 
-        Action() {}
+        Action() = default;
 
         Action(const std::string & n, const std::string & a, sf::Keyboard::Key k, size_t i)
             : name(n), action(a), key(k), index(i)
@@ -53,7 +53,7 @@ public:
         float maxSpeed  = 20;
         float jumpSpeed = -20;
 
-        PlayerConfig() {};
+        PlayerConfig() = default;
 
         NLOHMANN_DEFINE_TYPE_INTRUSIVE_WITH_DEFAULT(PlayerConfig, speed, maxSpeed, jumpSpeed)
     };
@@ -82,7 +82,8 @@ public:
         {"SHOOT",      {"Стрелять", "SHOOT",      sf::Keyboard::Key::Space, 0}}
     };
 
-    Settings() {};
+    Settings() = default;
+
     int getLevelIndexByPath(const std::string & path);
     std::optional<const Settings::Level> getLevelByPath(const std::string & path);
     std::optional<const Settings::Level> getLevelByIndex(size_t index);

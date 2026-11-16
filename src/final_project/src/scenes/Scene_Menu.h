@@ -2,7 +2,7 @@
 
 #include "Scene.h"
 
-class Scene_Menu : public Scene {
+class Scene_Menu final : public Scene {
 protected:
 
     std::vector<sf::String>  m_menuStrings;
@@ -16,15 +16,17 @@ protected:
 
     const sf::Color textColor = sf::Color(120, 120, 120, 255);
 
-    void update();
-    void onPause(const std::string & nextScene);
-    void onResume(const std::string & prevScene);
-    void sDoAction(const Action & action);
+    void update() override;
+    void onPause(const std::string & nextScene) override;
+    void onResume(const std::string & prevScene) override;
+    void sDoAction(const Action & action) override;
 
 public:
 
     Scene_Menu(GameEngine * gameEngine = nullptr, bool debugMode = false);
-    void init();
-    void sRender();
-    void reload();
+    virtual ~Scene_Menu() = default;
+
+    void init() override;
+    void sRender() override;
+    void reload() override;
 };

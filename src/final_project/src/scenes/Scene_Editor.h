@@ -3,7 +3,7 @@
 #include "Scene.h"
 #include "imgui.h"
 
-class Scene_Editor : public Scene {
+class Scene_Editor final : public Scene {
     struct PlayerConfig {
         float X, Y, CW, CH, SPEED, MAXSPEED, JUMP, GRAVITY, HEALTH;
         std::string WEAPON;
@@ -37,13 +37,13 @@ protected:
     std::vector<const char*> m_paths = std::vector<const char*>(100);
     std::vector<Animation> m_animations;
 
-    void update();
-    void onResume(const std::string & prevScene);
-    void onPause(const std::string & nextScene);
-    void sDoAction(const Action & action);
+    void update() override;
+    void onResume(const std::string & prevScene) override;
+    void onPause(const std::string & nextScene) override;
+    void sDoAction(const Action & action) override;
     void sDragAndDrop();
     void sGUI();
-    
+
     Vec2 newSpritePos();
     void spawnPlayer();
     void spawnDec();
@@ -66,6 +66,8 @@ protected:
 public:
 
     Scene_Editor(GameEngine * gameEngine = nullptr);
-    void init();
-    void sRender();
+    virtual ~Scene_Editor() = default;
+
+    void init() override;
+    void sRender() override;
 };

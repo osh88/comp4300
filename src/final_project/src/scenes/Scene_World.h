@@ -11,7 +11,7 @@ using json = nlohmann::json;
 
 typedef std::vector<std::vector<Entity>> TilesMatrix;
 
-class Scene_World : public Scene {
+class Scene_World final : public Scene {
     struct PlayerConfig {
         Vec2  startPos    = {96, 97};
         Vec2  scale       = {1, 1};
@@ -48,19 +48,19 @@ protected:
     TilesMatrix  m_tiles;
     Vec2         m_shift = {0, 0};
 
-    void init();
+    void init() override;
 
     void spawnPlayer();
     void spawnSword(Entity entity);
     void moveSword(Entity entity);
     void sMovement();
-    void sDoAction(const Action & action);
+    void sDoAction(const Action & action) override;
     void sAI();
     void sStatus();
     void sCollision();
     void sAnimation();
     void sCamera();
-    void sRender();
+    void sRender() override;
     void sWin();
     void sTeleport();
 
@@ -79,15 +79,16 @@ public:
 
     Scene_World();
     Scene_World(GameEngine * game, const std::string & levelPath);
-    void update();
-    void reload();
-    void onEnd();
-    void onPause(const std::string & nextScene);
-    void onResume(const std::string & prevScene);
 
-    void saveState();
-    bool loadState();
-    const std::string & levelPath() const;
+    void update() override;
+    void reload() override;
+    void onEnd() override;
+    void onPause(const std::string & nextScene) override;
+    void onResume(const std::string & prevScene) override;
+
+    void saveState() override;
+    bool loadState() override;
+    const std::string & levelPath() const override;
 
     NLOHMANN_DEFINE_TYPE_INTRUSIVE_WITH_DEFAULT(Scene_World, m_player, m_playerConfig, m_follow, m_tiles, m_shift, m_entityManager)
 };

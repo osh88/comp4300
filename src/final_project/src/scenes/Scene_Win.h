@@ -2,7 +2,7 @@
 
 #include "Scene.h"
 
-class Scene_Win : public Scene {
+class Scene_Win final : public Scene {
 protected:
 
     sf::Text                 m_menuText;
@@ -10,13 +10,15 @@ protected:
     sf::Texture              m_bgTexture;
     sf::Sprite               m_bg;
 
-    void update();
-    void onEnd();
-    void sDoAction(const Action & action);
+    void update() override;
+    void onEnd() override;
+    void sDoAction(const Action & action) override;
 
 public:
 
     Scene_Win(GameEngine * gameEngine = nullptr);
-    void init();
-    void sRender();
+    virtual ~Scene_Win() = default;
+
+    void init() override;
+    void sRender() override;
 };

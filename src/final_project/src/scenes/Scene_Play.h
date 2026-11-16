@@ -8,7 +8,7 @@
 
 typedef std::vector<std::vector<Entity>> TilesMatrix;
 
-class Scene_Play : public Scene {
+class Scene_Play final : public Scene {
     struct SWin {
         enum State {increaseAlpha, hideShader, delay};
         State                   state = increaseAlpha;
@@ -57,13 +57,13 @@ protected:
     void spawnArtefact(Entity block, const std::string & artName);
 
     void sMovement();
-    void sDoAction(const Action & action);
+    void sDoAction(const Action & action) override;
     void sAI();
     void sStatus();
     void sCollision();
     void sAnimation();
     void sCamera();
-    void sRender();
+    void sRender() override;
     void sVelocity();
     void sDragAndDrop();
     void sParallax();
@@ -76,13 +76,15 @@ protected:
     void setBoundingBox(Entity e, Vec2 bb, bool blockMove, bool blockVision);
 
     void setFPS();
-    void onEnd();
+    void onEnd() override;
 
 public:
 
     Scene_Play(GameEngine * gameEngine, Settings::Level& level);
-    void init();
-    void update();
-    void reload();
-    const std::string & levelPath() const;
+    virtual ~Scene_Play() = default;
+
+    void init() override;
+    void update() override;
+    void reload() override;
+    const std::string & levelPath() const override;
 };

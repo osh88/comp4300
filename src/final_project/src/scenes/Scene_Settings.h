@@ -3,7 +3,7 @@
 #include "Scene.h"
 #include "imgui.h"
 
-class Scene_Settings : public Scene {
+class Scene_Settings final : public Scene {
     bool m_oldFullScreenValue;
 
     struct SGUI {
@@ -15,16 +15,18 @@ protected:
     sf::Text m_help;
     SGUI     m_sGUI;
 
-    void update();
-    void onEnd();
-    void sDoAction(const Action & action);
+    void update() override;
+    void onEnd() override;
+    void sDoAction(const Action & action) override;
     void sGUI();
 
 public:
 
     Scene_Settings(GameEngine * gameEngine = nullptr);
-    void init();
-    void sRender();
+    virtual ~Scene_Settings() = default;
+
+    void init() override;
+    void sRender() override;
 };
 
 struct key {

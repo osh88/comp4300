@@ -2,8 +2,6 @@
 #include "SFML/Graphics/PrimitiveType.hpp"
 #include <iostream>
 
-Scene::Scene() {}
-
 Scene::Scene(GameEngine* gameEngine)
     : m_game(gameEngine)
 {

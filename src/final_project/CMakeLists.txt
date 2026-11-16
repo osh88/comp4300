@@ -66,6 +66,7 @@ file(GLOB SOURCES CONFIGURE_DEPENDS
     "deps/src/imgui/backends/imgui_impl_opengl3.cpp"
     "deps/src/imgui/misc/cpp/*.cpp"
     "src/*.cpp"
+    "src/scenes/*.cpp"
 )
 
 # Add an executable target using the collected sources

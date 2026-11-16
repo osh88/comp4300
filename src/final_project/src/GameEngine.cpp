@@ -1,6 +1,6 @@
 #include "GameEngine.h"
 #include "Assets.h"
-#include "Scene_Menu.h"
+#include "scenes/Scene_Menu.h"
 #include "Profiler.h"
 #include "imgui.h"
 #include "imgui-SFML.h"

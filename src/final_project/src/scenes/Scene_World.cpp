@@ -1213,15 +1213,15 @@ void Scene_World::onEnd() {
     EntityMemoryPool::Instance().clear();
 }
 
-void Scene_World::onPause(const std::string & nextScene) {
+void Scene_World::onPause([[maybe_unused]] const std::string & nextScene) {
     // TODO: Implement scene end
     //       - stop the music
     //       - play the menu music
     //       - change scene to menu
 }
 
-void Scene_World::onResume(const std::string & prevScene) {
-
+void Scene_World::onResume([[maybe_unused]] const std::string & prevScene) {
+    //
 }
 
 void Scene_World::sTeleport() {

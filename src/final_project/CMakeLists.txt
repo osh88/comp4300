@@ -106,6 +106,10 @@ target_link_libraries(game PRIVATE
     flac
 )
 
+target_compile_options(game PRIVATE
+  -Wall -Wextra -Werror -O3
+)
+
 set_target_properties(game PROPERTIES
   INSTALL_RPATH "@executable_path/lib/darwin"
   BUILD_WITH_INSTALL_RPATH TRUE

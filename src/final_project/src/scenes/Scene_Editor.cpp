@@ -1147,14 +1147,14 @@ void Scene_Editor::drawGrid() {
     }
 }
 
-void Scene_Editor::onResume(const std::string & prevScene) {
+void Scene_Editor::onResume([[maybe_unused]] const std::string & prevScene) {
     // TODO: fix error: Debian/Gnome/Wayland/Nvidia: changing cursor crashes app
     // if (auto cursor = sf::Cursor::createFromSystem(sf::Cursor::Type::Hand); cursor.has_value()) {
     //     m_game->window().setMouseCursor(cursor.value());
     // }
 }
 
-void Scene_Editor::onPause(const std::string & nextScene) {
+void Scene_Editor::onPause([[maybe_unused]] const std::string & nextScene) {
     // TODO: fix error: Debian/Gnome/Wayland/Nvidia: changing cursor crashes app
     // if (auto cursor = sf::Cursor::createFromSystem(sf::Cursor::Type::Arrow); cursor.has_value()) {
     //     m_game->window().setMouseCursor(cursor.value());

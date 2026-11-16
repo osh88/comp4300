@@ -59,7 +59,7 @@ public:
     Assets & assets();
     bool isRunning();
     const std::string& currentSceneName() const;
-    const int getFrameTime() const;
+    int getFrameTime() const;
     void setFPS(int v);
     void setFullScreen(bool init = false);
     void setSoundVolume();

@@ -10,11 +10,14 @@ Scene::Scene(GameEngine* gameEngine)
     // m_viewCenter = m_viewSize / 2.0f;
 }
 
+void Scene::onResume([[maybe_unused]] const std::string & prevScene) {};
+void Scene::onPause([[maybe_unused]] const std::string & nextScene) {};
+
 void Scene::doAction(const Action& action) {
     sDoAction(action);
 }
 
-void Scene::simulate(const size_t frames) {}
+void Scene::simulate([[maybe_unused]] const size_t frames) {}
 
 void Scene::registerAction(const std::string& actionName, sf::Keyboard::Key key, bool control, bool shift, bool alt, bool system) {
     // Затираем имеющуюся привязку

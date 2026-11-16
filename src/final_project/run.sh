@@ -1,5 +1,10 @@
 #!/bin/sh
 
 mkdir -p build && cd build
-cmake .. && cmake --build . -j8
-cd ../ && build/game
+
+if cmake .. && cmake --build . -j8; then
+    cd ../
+    build/game
+else
+    cd ../
+fi

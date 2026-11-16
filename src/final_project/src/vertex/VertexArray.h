@@ -13,7 +13,7 @@ class VertexArray {
 
 public:
 
-    VertexArray(int capacity = 3000);
+    explicit VertexArray(int capacity = 3000);
 
     void clear();
     void draw(const sf::Sprite & sprite);

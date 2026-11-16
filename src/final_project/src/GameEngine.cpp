@@ -141,7 +141,7 @@ void GameEngine::setFPS(int v) {
     m_fps = v;
 }
 
-const int GameEngine::getFrameTime() const {
+int GameEngine::getFrameTime() const {
     return m_frameTime;
 }
 

@@ -193,7 +193,7 @@ void Scene_Menu::onPause(const std::string & nextScene) {
     }
 }
 
-void Scene_Menu::onResume(const std::string & prevScene) {
+void Scene_Menu::onResume([[maybe_unused]] const std::string & prevScene) {
     m_game->assets().getSound("MusicTitle")->play();
 }
 

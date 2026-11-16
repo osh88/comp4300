@@ -34,10 +34,10 @@ public:
 
 class CLifespan : public Component {
 public:
-    int lifespan = 0;
-    int frameCreated = 0;
-    CLifespan() {}
-    CLifespan(int duration, int frame)
+    size_t lifespan = 0;
+    size_t frameCreated = 0;
+    CLifespan() = default;
+    CLifespan(int duration, size_t frame)
         : lifespan(duration), frameCreated(frame) {}
 
     NLOHMANN_DEFINE_TYPE_INTRUSIVE_WITH_DEFAULT(CLifespan, has, lifespan, frameCreated)

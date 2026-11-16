@@ -68,7 +68,7 @@ void Inventory::delArtefact(const std::string & name, bool all) {
     }
 }
 
-void Inventory::selectArtefact(int index) {
+void Inventory::selectArtefact(size_t index) {
     if (index < 0 || index >= m_artefacts.size()) {
         return;
     }
@@ -99,7 +99,7 @@ void Inventory::selectArtefact(int index) {
 }
 
 void Inventory::selectArtefact(const std::string & name) {
-    for (int i=0; i<m_artefacts.size(); i++) {
+    for (size_t i=0; i<m_artefacts.size(); i++) {
         if (m_artefacts[i].artefact.name == name) {
             selectArtefact(i);
             break;
@@ -107,7 +107,7 @@ void Inventory::selectArtefact(const std::string & name) {
     }
 }
 
-void Inventory::useArtefact(int i, Entity & player) {
+void Inventory::useArtefact(size_t i, Entity & player) {
     if (i < 0 || i >= m_selected.size()) {
         return;
     }
@@ -186,7 +186,7 @@ void Inventory::drawInventory(sf::RenderWindow & window, const Assets & assets) 
     sh.setOutlineColor(sf::Color::White);
     sh.setOutlineThickness(thickness);
 
-    for (int i=0; i<m_artefacts.size(); i++) {
+    for (size_t i=0; i<m_artefacts.size(); i++) {
         auto art = m_artefacts[i];
         sh.setPosition(pos);
         window.draw(sh);
@@ -240,7 +240,7 @@ void Inventory::drawHUD(sf::RenderWindow & window, const Assets & assets) {
     sh.setOutlineColor(sf::Color::White);
     sh.setOutlineThickness(thickness);
 
-    for (int i=0; i<m_selected.size(); i++) {
+    for (size_t i=0; i<m_selected.size(); i++) {
         auto idx = m_selected[i];
         sh.setPosition(pos);
         window.draw(sh);

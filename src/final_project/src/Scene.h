@@ -13,7 +13,7 @@ struct KeyAction {
     bool alt     = false;
     bool system  = false;
 
-    KeyAction() {};
+    KeyAction() = default;
 
     KeyAction(sf::Keyboard::Key key, bool control, bool shift, bool alt, bool system)
         : key(key), control(control), shift(shift), alt(alt), system(system)
@@ -84,8 +84,8 @@ public:
     void setBaseViewSize(const Vec2 & s);
 
     virtual void onEnd() {};
-    virtual void onResume(const std::string & prevScene) {};
-    virtual void onPause(const std::string & nextScene) {};
+    virtual void onResume(const std::string & prevScene);
+    virtual void onPause(const std::string & nextScene);
 
     virtual void saveState() {};
     virtual bool loadState() { return false; };

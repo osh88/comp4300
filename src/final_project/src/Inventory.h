@@ -15,16 +15,16 @@ class Inventory {
 
     bool m_drawInventory = false;
 
-    std::vector<Item> m_artefacts;
-    std::vector<int>  m_selected;
-    int               m_currentWeapon = -1;
+    std::vector<Item>   m_artefacts;
+    std::vector<size_t> m_selected;
+    size_t              m_currentWeapon = -1;
 
     void drawInventory(sf::RenderWindow & window, const Assets & assets);
     void drawHUD(sf::RenderWindow & window, const Assets & assets);
 
 public:
 
-    Inventory() {};
+    Inventory() = default;
     Inventory(int inventorySize, int maxSelectedArtefacts)
         : m_artefacts(inventorySize)
         , m_selected(maxSelectedArtefacts)
@@ -36,8 +36,8 @@ public:
     void addArtefact(const std::string & name);
     void delArtefact(const std::string & name, bool all = false);
     void selectArtefact(const std::string & name);
-    void selectArtefact(int i);
-    void useArtefact(int i, Entity & player);
+    void selectArtefact(size_t i);
+    void useArtefact(size_t i, Entity & player);
     void drawInventory(bool value);
     bool drawInventory();
     void clearSelections();
